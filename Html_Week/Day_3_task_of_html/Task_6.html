@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task_6</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Top Bar Styling */
+    .top-bar {
+      background-color: #4d4e4f;
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .top-bar .search {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .top-bar .search input {
+      padding: 5px;
+      border-radius: 4px;
+      border: 1px solid #ced4da;
+      width: 50%;
+    }
+
+    .top-bar .actions {
+      display: flex;
+      gap: 20px;
+    }
+
+    .top-bar .actions i {
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    /* Sidebar Styling */
+    .main-container {
+      display: flex;
+      flex-grow: 1;
+    }
+
+    .sidebar {
+      width: 200px;
+      background-color: #343a40;
+      color: white;
+      height: 100%;
+      padding-top: 10px;
+    }
+
+    .top-bar img {
+      max-width: 10%;
+      height: auto;
+      margin-bottom: 10px;
+    }
+
+    .sidebar ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .sidebar ul li {
+      padding: 10px;
+      text-align: left;
+    }
+
+    .sidebar ul li:hover {
+      background-color: #495057;
+      cursor: pointer;
+    }
+
+    .sidebar ul li a {
+      color: white;
+      text-decoration: none;
+      display: block;
+    }
+
+    .sidebar ul li ul {
+      padding-left: 15px;
+    }
+    .header-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+
+    .search-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #f5f5f5;
+    padding: 8px 15px;
+    border-radius: 4px;
+    margin: 0 auto; 
+    flex-direction: row-reverse;
+  }
+
+.search-bar input {
+    border: none;
+    background: none;
+    outline: none;
+    width: 100%;
+}
+
+.dropdown{
+    position: absolute;
+    right: 300px;
+    margin: 0 auto;
+    
+}
+
+   
+    .content {
+      flex-grow: 1;
+      padding: 20px;
+      background-color: #f8f9fa;
+    }
+
+    .content h1 {
+      border-bottom: 1px solid #4a4848;
+      padding-bottom: 10px;
+      margin-bottom: 50px;
+    }
+
+    .form-group {
+      display: block;
+    position: relative;
+    margin-bottom: 2em;
+    clear: both;
+    }
+
+    .form-group label {
+      flex: 1;
+      font-weight: bold;
+    }
+
+    .form-group input,
+.form-group select {
+  flex: 1; 
+  padding: 6px; 
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  /* width: 90%;  */
+}
+    .form-actions {
+      display: flex;
+      justify-content: flex-start;
+      margin-top: 20px;
+    }
+
+    .form-actions button {
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+
+    .btn-save {
+      background-color: #007bff;
+      color: white;
+    }
+
+    .btn-cancel {
+      background-color: #6c757d;
+      color: white;
+    }
+
+    .btn-save:hover {
+      background-color: #0056b3;
+    }
+
+    .btn-cancel:hover {
+      background-color: #5a6268;
+    }
+    .fas {
+  color: #666;
+}
+
+.page-tips {
+    position: absolute;
+  display: flex;  
+  align-items: center; 
+  gap: 8px;
+  padding: 8px 15px;
+  background: none;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #0056b3; 
+
+
+  right: 15px;  
+  
+ 
+}
+.required-label {
+  color: red;  
+}
+
+.required-label::after {
+  content: " *";  
+  color: red; 
+}
+  </style>
+</head>
+<body>
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <img src="https://satvasolutions.com/wp-content/uploads/2024/08/240-x-62.webp" alt="Logo">
+    <div class="header-left">
+        <i class="fas fa-plus"></i>
+        <i class="fas fa-rotate"></i>
+    </div>
+    <div class="search-bar">
+        <i class="fas fa-search"></i>
+        <input type="text" placeholder="Search in Customers">
+    </div>
+    <div class="actions">
+        
+        <label for="dropdown">Satva Solutions</label>
+        <img src="https://cdn-icons-png.flaticon.com/128/10728/10728680.png" alt="drop-down" width="15px">
+      <i class="fas fa-bell"></i>
+      <i class="fas fa-clock"></i>
+      <i class="fa-regular fa-user"></i>
+      
+    </div>
+  </div>
+
+  <!-- Main Container -->
+  <div class="main-container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      
+      <ul>
+        <li><a href="#">Dashboard</a></li>
+        <li><a href="#">Items</a></li>
+        <li><a href="#">Banking</a></li>
+        <li>
+          <a href="#">Sales</a>
+          <ul>
+            <li><a href="#">Customers</a></li>
+            <li><a href="#">Retainer Invoices</a></li>
+            <li><a href="#">Invoices</a></li>
+            <li><a href="#">Payments Received</a></li>
+            <li><a href="#">Recurring Invoices</a></li>
+            <li><a href="#">Credit Notes</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">Purchases</a>
+          <ul>
+            <li><a href="#">Vendors</a></li>
+            <li><a href="#">Bills</a></li>
+            <li><a href="#">Expenses</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">Time Tracking</a>
+          <ul>
+            <li><a href="#">Projects</a></li>
+            <li><a href="#">Timesheets</a></li>
+          </ul>
+        </li>
+        <li><a href="#">GST Filing</a></li>
+      </ul>
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+        <button class="page-tips"><i class="fas fa-lightbulb"></i> Page Tips</button>
+      <h1>New Customer</h1>
+      <form action="#" method="POST">
+        <div class="form-group">
+          <label>Customer Type:</label>
+          <input type="radio" name="customerType" value="Business" required> Business
+          <input type="radio" name="customerType" value="Individual" required> Individual
+        </div>
+
+        <div class="form-group">
+          <label for="salutation">Primary Contact:</label>
+          <select name="salutation" id="salutation" required>
+            <option value="">Select Salutation</option>
+            <option value="Mr.">Mr.</option>
+            <option value="Ms.">Ms.</option>
+            <option value="Mrs.">Mrs.</option>
+          </select>
+  
+            <input 
+              type="text" 
+              name="firstName" 
+              id="firstName" 
+              placeholder="First Name" 
+              pattern="[A-Za-z\s]+" 
+              title="Please enter a valid name (letters and spaces only)." 
+              required>
+              
+            <input 
+              type="text" 
+              name="lastName" 
+              id="lastName" 
+              placeholder="Last Name" 
+              pattern="[A-Za-z\s]+" 
+              title="Please enter a valid name (letters and spaces only)." 
+              required>
+              
+           
+     
+        </div>
+
+        <div class="form-group">
+          <label for="companyName">Company Name:</label>
+          <input type="text" id="companyName" name="companyName" required>
+        </div>
+
+        <div class="form-group">
+            <label for="displayName" class="required-label">Customer Display Name:</label>
+            <input type="text" id="displayName" name="displayName" required>
+          </div>
+
+        <div class="form-group">
+          <label for="email">Customer Email:</label>
+          <input type="email" id="email" name="email"  required
+          pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
+        </div>
+
+        <div class="form-group">
+            <label for="phone">Customer Phone:</label>
+            <input type="tel" class="input-text" name="workPhone" placeholder="Work Phone" pattern="^[1-9]\d{9}$" title="Enter a 10-digit phone number.">
+            <input type="tel" class="input-text" name="mobilePhone" placeholder="Mobile" pattern="^[1-9]\d{9}$" title="Enter a 10-digit mobile number.">
+            <label for="website" style="color: rgb(0, 204, 255); font-size: 12px;">Add more details</label>
+          </div>
+
+        <div class="form-group">
+          <label for="website">Website:</label>
+          <input type="url" id="website" name="website"  required><br>
+         
+        </div>
+
+        
+
+        <div class="form-actions">
+          <button type="submit" class="btn-save">Save</button>
+          <button type="button" class="btn-cancel">Cancel</button>
+        </div>
+      </form>
+      <script>
+  window.onload = function() {
+    document.getElementById("firstName").focus();
+  };
+</script>
+    </div>
+ 

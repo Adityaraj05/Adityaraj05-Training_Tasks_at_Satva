@@ -1,0 +1,10 @@
+body{
+    text-align: center;
+}
+table{
+    position: absolute;
+    text-align: center;
+    width: 50%;
+    left: 400px;
+    
+}

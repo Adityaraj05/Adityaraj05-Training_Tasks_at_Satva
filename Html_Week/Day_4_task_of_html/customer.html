@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="customer.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div>
+      <nav class="navbar">
+        <div class="logo"><img src="https://satvasolutions.com/wp-content/uploads/2024/08/240-x-62.webp" width="150px" alt="Logo"></div>
+        <div class="profile">
+          <img
+            src="https://lh3.googleusercontent.com/a/ACg8ocKcnqERykRtoe1ScJ7ZYUo-CM5NsPRRzcgLUD9nQLRfAZ3C2IM=s360-c-no"
+            class="logo"
+            alt="Sample Logo"
+          />
+          <p>Super Admin</p>
+        </div>
+      </nav>
+
+      <div class="container">
+        <div class="sideMenu">
+          <a href="./customer.html" class="menu-item">Customer</a>
+          <a href="./invoice.html" class="menu-item">Invoice</a>
+          <a href="./report.html" class="menu-item">Report</a>
+        </div>
+        <div class="table-container" id="dyanmicContent">
+          <h1 class="heading">Customer</h1>
+          <div class="toolbar">
+            <input type="text" class="search" placeholder="Search" />
+            <select name="status" id="statu" class="status">
+              <option value="">Status</option>
+              <option value="active">Active</option>
+              <option value="inactive">Inactive</option>
+            </select>
+            <button type="button" class="add" onclick="openAddModal()">
+              Add Customer
+            </button>
+          </div>
+
+          <table class="table" border="1">
+            <thead>
+              <tr>
+                <td>Name</td>
+                <td>Company Name</td>
+                <td>Email</td>
+                <td>Mobile Number</td>
+                <td>Status</td>
+                <td>Action</td>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td>Aditya Raj</td>
+                <td>Satva_Solution</td>
+                <td>aditya@gmail.com</td>
+                <td>1234567890</td>
+                <td style="color:green">Active</td>
+                <td class="actions">
+                  <i class="fas fa-edit"></i>
+                  <i
+                    class="fas fa-trash"
+                    onclick="openDeleteModal(this.parentElement.parentElement)"
+                  ></i>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="pagination">
+            <button type="button" class="prev">Prev</button>
+            <button type="button" class="btn">1</button>
+            <button type="button" class="btn">2</button>
+            <button type="button" class="btn">3</button>
+            <button type="button" class="btn">4</button>
+            <button type="button" class="btn">5</button>
+            <button type="button" class="btn">6</button>
+            <button type="button" class="next">Next</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="delete-modal" id="deleteModal">
+      <div class="delete-content">
+        <i class="fas fa-close"></i>
+        <p>Are you Sure</p>
+        <p>Are you sure you want to delete this record?</p>
+        <div class="buttons">
+          <button
+            type="button"
+            class="cancel"
+            id="closeDeleteModal"
+            onclick="closeDeleteModal()"
+          >
+            Cancel
+          </button>
+          <button type="button" class="submit" onclick="confirmDelete()">
+            Delete
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="add-modal" id="addModal">
+      <div class="modal-header">Add Customer</div>
+
+      <div class="modal-content">
+        <form
+          action=""
+          class="add-form"
+          id="addForm"
+          onsubmit="submitForm(event)"
+        >
+          <div class="input-line">
+            <div class="input-group">
+              <label class="input-label">Name</label>
+              <input type="text" class="input" id="name" required />
+            </div>
+
+            <div class="input-group">
+              <label class="input-label">Company Name</label>
+              <input type="text" class="input" id="companyName" required />
+            </div>
+          </div>
+
+          <div class="input-line">
+            <div class="input-group">
+              <label class="input-label">Email</label>
+              <input type="email" class="input" id="email" required />
+            </div>
+
+            <div class="input-group">
+              <label class="input-label">Mobile Number</label>
+              <input type="tel" class="input" id="mobileNumber" required />
+            </div>
+          </div>
+          <div class="input-line">
+            <div class="input-group">
+              <label class="input-label">Status</label>
+              <select id="status" class="input" required>
+                <option value="active">Active</option>
+                <option value="inactive">Inactive</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="input-line">
+            <div class="input-group">
+              <label class="input-label">Address</label>
+              <textarea
+                name="address"
+                id=""
+                rows="4"
+                id="address"
+                cols=""
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <div class="buttons">
+            <button
+              type="button"
+              class="cancel"
+              id="closeModal"
+              onclick="closeAddModal()"
+            >
+              Cancel
+            </button>
+            <button type="submit" class="submit">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      let rowToDelete = null;
+      function openAddModal() {
+        document.getElementById("addModal").style.display = "block";
+      }
+
+      function closeAddModal() {
+        document.getElementById("addModal").style.display = "none";
+      }
+
+      function closeDeleteModal() {
+        document.getElementById("deleteModal").style.display = "none";
+      }
+
+      function openDeleteModal(row) {
+        rowToDelete = row;
+        document.getElementById("deleteModal").style.display = "flex";
+      }
+
+      function confirmDelete() {
+        if (rowToDelete) {
+          rowToDelete.remove();
+          closeDeleteModal();
+        }
+      }
+
+      function submitForm(event) {
+        event.preventDefault();
+        updateTable();
+      }
+
+      function updateTable() {
+  const name = document.getElementById("name").value;
+  const companyName = document.getElementById("companyName").value;
+  const email = document.getElementById("email").value;
+  const mobileNumber = document.getElementById("mobileNumber").value;
+  const status = document.getElementById("status").value;
+
+
+  const table = document.querySelector(".table tbody");
+  const tr = document.createElement("tr");
+
+  // Set color for status
+  let statusText = status === 'active' ? 'Active' : 'Inactive';
+  let statusColor = status === 'active' ? 'green' : 'red';
+
+  tr.innerHTML = `
+    <td>${name}</td>
+    <td>${companyName}</td>
+    <td>${email}</td>
+    <td>${mobileNumber}</td>
+    <td style="color: ${statusColor};">${statusText}</td>
+    <td class="actions">
+      <i class="fas fa-edit"></i>
+      <i class="fas fa-trash" onclick="openDeleteModal(this.parentElement.parentElement)"></i>
+    </td>
+  `;
+  
+  table.appendChild(tr);
+  closeAddModal();
+}
+      
+
+    </script>
+  </body>
+</html>

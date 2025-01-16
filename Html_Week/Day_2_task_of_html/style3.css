@@ -1,0 +1,62 @@
+body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 94%;
+    margin-left: 40px;
+    margin-top: 10px;
+    background-color: lightblue;
+    display: flex;
+    height: 80vh;
+    justify-content: center;
+}
+
+table {
+    margin-top: 10px;
+    width: 65%;
+    height: 55%;
+    border-collapse: collapse;
+    border-radius: 15px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+td,
+th {
+    padding: 20px;
+    /* border: 2px solid grey; */
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+.numbers:hover{
+    background-color: rgb(229, 226, 226);
+
+}
+
+.screen {
+    background: black;
+    color: white;
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.operators {
+    background: rgb(206, 206, 206);
+}
+.operators:hover {
+    background: rgb(179, 176, 176);
+}
+
+.equals_to {
+    background: rgb(223, 112, 33);
+}
+.equals_to:hover {
+    background: rgb(220, 98, 10);
+}
+
+.numbers {
+    background: whitesmoke;
+}

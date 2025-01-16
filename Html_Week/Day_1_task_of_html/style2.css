@@ -1,0 +1,53 @@
+body {
+  text-align: center;
+}
+
+table {
+  margin: auto;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  border: 1px solid black;
+  padding: 5px;
+  text-align: center;
+}
+.body{
+  text-align: left;
+}
+
+
+td.no-border-right {
+  border-right: none; /* Removes the right border */
+}
+
+td.no-border-left {
+  border-left: none; /* Removes the left border */
+}
+
+td.no-border {
+  border-right: none; /* Removes all borders for the cell */
+}
+
+.checkbox {
+  text-align: center;
+}
+
+.input-box {
+  width: 50px;
+  
+}
+
+.save-btn {
+  margin-top: 10px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 14px;
+  background-color: #1b81da;
+  cursor: pointer;
+}
+.save-btn:hover{
+    background-color: #0741ac;
+}

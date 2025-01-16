@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task2</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <form id="registrationForm">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName" placeholder="Enter First Name" required>
+        
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastName" placeholder="Enter Last Name" required>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Enter Email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,} required>
+        
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" placeholder="Enter Age" required>
+        
+        <label for="linkedin">LinkedIn Profile Link:</label>
+        <input type="url" id="linkedin" name="linkedin" placeholder="Enter LinkedIn Profile Link" required>
+        
+        <label for="numberRange">Number between 10 & 20:</label>
+        <input type="number" id="numberRange" name="numberRange" min="10" max="20" placeholder="Enter Number Between 10 & 20" required>
+        
+        <label for="password">Password (With 1 Number, 1 UpperCase, 1 LowerCase, Min 5 length):</label>
+        <input type="password" id="password" name="password" placeholder="Enter Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}" required>
+        
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task_4</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            
+        }
+    </style>
+</head>
+
+<body>
+    <table border="2" cellpadding="10" cellspacing="6" width="600" align="center">
+       
+        <tr>
+            <td align="center" widht = "600">
+                <h1>Allow only if Image</h1>
+            </td>
+        </tr>
+
+        <tr>
+            <td width = "600">
+                <form action="" method="post" enctype="multipart/form-data">
+                    <label for="imageUpload">Select an image:</label>
+                    <input type="file" id="imageUpload" name="imageUpload" accept="image/*" required onchange="checkFileType()"><br><br>
+                    <span id="fileMessage" style="color: red;"></span>
+                    <button type="submit">Upload</button>
+                </form>
+            </td>
+        </tr>
+    </table>
+
+    <script>
+        function checkFileType() {
+            const fileInput = document.getElementById('imageUpload');
+            const file = fileInput.files[0];
+            const messageElement = document.getElementById('fileMessage');
+
+            if (file) {
+                const fileType = file.type;
+                if (fileType.startsWith("image/")) {
+                    
+                    messageElement.textContent = "File type: " + fileType;
+                } else {
+                 
+                    messageElement.textContent = "Error: Selected file is not an image.";
+                    fileInput.value = ""; // Clear the invalid file
+                }
+            }
+        }
+    </script>
+</body>
+</html>

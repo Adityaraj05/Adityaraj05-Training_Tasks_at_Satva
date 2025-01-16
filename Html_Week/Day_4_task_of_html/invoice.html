@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="invoice.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div>
+        <nav class="navbar">
+            <div class="logo"><img src="https://satvasolutions.com/wp-content/uploads/2024/08/240-x-62.webp" width="150px" alt="Logo"></div>
+            <div class="profile">
+                <img src="https://lh3.googleusercontent.com/a/ACg8ocKcnqERykRtoe1ScJ7ZYUo-CM5NsPRRzcgLUD9nQLRfAZ3C2IM=s360-c-no" class="logo" alt="Sample Logo" />
+                <p>Super Admin</p>
+            </div>
+        </nav>
+
+        <div class="container">
+            <div class="sideMenu">
+                <a href="./customer.html" class="menu-item">Customer</a>
+                <a href="./invoice.html" class="menu-item">Invoice</a>
+                <a href="./report.html" class="menu-item">Report</a>
+            </div>
+            <div class="table-container" id="dyanmicContent">
+                <h1 class="heading">Invoice</h1>
+                <div class="toolbar">
+                    <input type="text" class="search" placeholder="Search" />
+                    <select name="status" id="status" class="status">
+                        <option value="">Payment Status</option>
+                        <option value="">Paid</option>
+                        <option value="active">Partially Paid</option>
+                        <option value="inactive">Unpaid</option>
+                    </select>
+                    <button type="button" class="add" onclick="openAddModal()">Add Invoice</button>
+                </div>
+
+                <table class="table" border="1">
+                    <thead>
+                        <tr>
+                            <td>Number</td>
+                            <td>Customer</td>
+                            <td>Date</td>
+                            <td>Due Date</td>
+                            <td>Payment Status</td>
+                            <td>Action</td>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td style="color:green">Paid</td>
+                            <td class="actions">
+                                <i class="fas fa-edit"></i>
+                                <i class="fas fa-trash" onclick="openDeleteModal(this.parentElement.parentElement)"></i>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td style="color:orangered">Partially Paid</td>
+                            <td class="actions">
+                                <i class="fas fa-edit"></i>
+                                <i class="fas fa-trash" onclick="openDeleteModal(this.parentElement.parentElement)"></i>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td style="color:rgb(238, 15, 52)">Unpaid</td>
+                            <td class="actions">
+                                <i class="fas fa-edit"></i>
+                                <i class="fas fa-trash" onclick="openDeleteModal(this.parentElement.parentElement)"></i>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+                <div class="pagination">
+                    <button type="button" class="prev">Prev</button>
+                    <button type="button" class="btn">1</button>
+                    <button type="button" class="btn">2</button>
+                    <button type="button" class="btn">3</button>
+                    <button type="button" class="btn">4</button>
+                    <button type="button" class="btn">5</button>
+                    <button type="button" class="btn">6</button>
+                    <button type="button" class="next">Next</button>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+    <div class="delete-modal" id="deleteModal">
+        <div class="delete-content">
+            <i class="fas fa-close"></i>
+            <p>Are you Sure</p>
+            <p>Are you sure you want to delete this record?</p>
+            <div class="buttons">
+                <button type="button" class="cancel" id="closeDeleteModal" onclick="closeDeleteModal()">Cancel</button>
+                <button type="button" class="submit" onclick="confirmDelete()">Delete</button>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="add-modal" id="addModal">
+
+        <div class="modal-header">Add Invoice</div>
+
+        <div class="modal-content">
+            <form action="" class="add-form" id="addForm" onsubmit="submitForm(event)">
+                <div class="input-line">
+                    <div class="input-group">
+                        <label class="input-label">Number</label>
+                        <input type="text" class="input" id="number" required />
+                    </div>
+
+                    <div class="input-group">
+                        <label class="input-label">Customer</label>
+                        <input type="text" class="input" id="customerName" required />
+                    </div>
+                </div>
+
+                <div class="input-line">
+                    <div class="input-group">
+                        <label class="input-label">Date</label>
+                        <input type="date" class="input" id="date" required />
+                    </div>
+
+                    <div class="input-group">
+                        <label class="input-label">Due Date</label>
+                        <input type="date" class="input" id="dueDate" required />
+                    </div>
+                </div>
+
+                <div class="input-line">
+                    <div class="input-group">
+                        <label class="input-label">QTY</label>
+                        <select name="qty" id="qty">
+                            <option value="">Select Quantity</option>
+                            <option value="1">1</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label class="input-label">Rate</label>
+                        <input type="text" class="input" id="rate" required />
+                    </div>
+                </div>
+
+
+
+
+                <div class="input-line">
+                    <div class="input-group">
+                        <label class="input-label">Description</label>
+                        <textarea name="description" id="" rows="4" id="desc" cols="" required></textarea>
+                    </div>
+                </div>
+
+
+
+                <div class="buttons">
+                    <button type="button" class="cancel" id="closeModal" onclick="closeAddModal()">Cancel</button>
+                    <button type="submit" class="submit">Save</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+    <script>
+        let rowToDelete = null;
+        function openAddModal() {
+            document.getElementById('addModal').style.display = 'block';
+        }
+
+        function closeAddModal() {
+            document.getElementById('addModal').style.display = 'none';
+        }
+
+        function closeDeleteModal() {
+            document.getElementById('deleteModal').style.display = 'none';
+        }
+
+        function openDeleteModal(row) {
+            rowToDelete = row;
+            document.getElementById('deleteModal').style.display = 'flex';
+        }
+
+
+        function confirmDelete() {
+            if (rowToDelete) {
+                rowToDelete.remove();
+                closeDeleteModal();
+            }
+        }
+
+
+
+        function submitForm(event) {
+            event.preventDefault();
+            updateTable();
+        }
+
+        function updateTable() {
+            const number = document.getElementById('number').value;
+            const customerName = document.getElementById('customerName').value;
+            const date = document.getElementById('date').value;
+            const dueDate = document.getElementById('dueDate').value;
+
+            const table = document.querySelector('.table tbody');
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+        <td>${number}</td>
+        <td>${customerName}</td>
+        <td>${date}</td>
+        <td>${dueDate}</td>
+        <td>Paid</td>
+        <td class="actions">
+            <i class="fas fa-edit"></i>
+            <i class="fas fa-trash" onclick="openDeleteModal(this.parentElement.parentElement)"></i>
+
+        </td>
+    `;
+            table.appendChild(tr);
+            closeAddModal();
+        }
+
+
+
+    </script>
+</body>
+
+</html>

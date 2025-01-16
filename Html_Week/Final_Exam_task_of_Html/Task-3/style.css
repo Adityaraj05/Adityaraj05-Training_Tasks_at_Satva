@@ -1,0 +1,47 @@
+.total{
+    background-color: lightgray;
+}
+.container{
+    padding: 0 20%;
+    margin-bottom: 40px;
+}
+.table1{
+    width: 100%;
+    border-collapse: collapse;
+}
+.container th,td{
+    padding: 5px;
+}
+
+p{
+    margin: 0;
+    text-align: center;
+}
+
+table{
+    border:1px solid blue;
+}
+
+th,b{
+    color: red;
+}
+.table1 th, .table1 td{
+    text-align: left;
+    
+}
+.table2{
+    width:100%;
+}
+
+.container2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 20%;
+  
+}
+
+.container2 th,td{
+    padding: 8px;
+    text-align:center;
+}

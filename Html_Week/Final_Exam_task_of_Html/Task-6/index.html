@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="File Upload and Download functionality using HTML with semantic tags for better readability and SEO.">
+    <title>Task_6</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <header>
+            <h1>File Upload and Download</h1>
+        </header>
+
+        <section id="download">
+            <h2>Download File</h2>
+            <p>Click the link below to download the file:</p>
+            <a href="https://link.testfile.org/500MB" download>
+                <button type="button">Download File</button>
+            </a>
+        </section>
+
+        <hr>
+
+    
+        <section id="upload">
+            <h2>Upload File</h2>
+            <p>Only Excel files (.xls, .xlsx) are allowed for upload.</p>
+            <form action="/upload-endpoint" method="post" enctype="multipart/form-data">
+                <label for="file-upload">Choose an Excel file:</label>
+                <input type="file" id="file-upload" name="file-upload" accept=".xls,.xlsx" required>
+                <button type="submit">Upload File</button>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

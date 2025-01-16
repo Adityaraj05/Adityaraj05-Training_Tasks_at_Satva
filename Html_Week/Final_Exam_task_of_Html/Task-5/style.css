@@ -1,0 +1,34 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #ddd1d1;
+  }
+
+  
+
+  h1, h2 {
+    text-align: center;
+    margin: 10px 0;
+    text-decoration: underline;
+
+  }
+  h2{
+    text-decoration: none;
+  }
+
+  .audio-container, .video-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  audio{
+    text-align: center;
+  }
+
+  audio, video {
+    margin: 20px 0;
+  }

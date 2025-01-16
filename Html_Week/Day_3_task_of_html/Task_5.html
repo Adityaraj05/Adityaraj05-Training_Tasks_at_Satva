@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task_5</title>
+    <style>
+        .save-btn {
+  margin-top: 10px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 14px;
+  background-color: #1b81da;
+  cursor: pointer;
+  border:none;
+  border-radius: 3px;
+}
+.save-btn:hover{
+    background-color: #0741ac;
+}
+
+    </style>
+</head>
+<body>
+    <table align="center" width="800" cellpadding="10" cellspacing="0">
+        <h1 style="text-align: center;">Two Submit Buttons with Different Action</h1>
+        <tr>
+            <td width="50%" valign="top">
+                <h3>Submit Form</h3>
+                <form id="myForm">
+                    <label for="firstname">Firstname:</label><br>
+                    <input type="text" id="firstname" name="firstname" required style="width: 90%;"><br><br>
+                    <button type="button" id="submit1" class="save-btn">Submit1</button>
+                    <button type="button" id="submit2" class="save-btn">Submit2</button>
+                </form>
+            </td>
+            
+            <td width="50%" valign="top">
+                <table border="1" width="100%" cellpadding="5" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Firstname</th>
+                            <th>Submitted Via</th>
+                        </tr>
+                    </thead>
+                    <tbody id="dataTable">
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <script>
+        document.getElementById("submit1").addEventListener("click", function() {
+            addRow("Submit1");
+        });
+
+        document.getElementById("submit2").addEventListener("click", function() {
+            addRow("Submit2");
+        });
+
+        function addRow(submitType) {
+            const firstname = document.getElementById("firstname").value.trim();
+            
+            if (firstname === "") {
+                alert("Please enter a firstname.");
+                return;
+            }
+
+            const tableBody = document.getElementById("dataTable");
+            const newRow = document.createElement("tr");
+
+            const firstnameCell = document.createElement("td");
+            firstnameCell.textContent = firstname;
+            newRow.appendChild(firstnameCell);
+
+            const submitTypeCell = document.createElement("td");
+            submitTypeCell.textContent = submitType;
+            newRow.appendChild(submitTypeCell);
+
+            tableBody.appendChild(newRow);
+
+            document.getElementById("firstname").value = "";
+        }
+    </script>
+</body>
+</html>

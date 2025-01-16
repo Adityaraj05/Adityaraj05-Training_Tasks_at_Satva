@@ -1,0 +1,232 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  color: white;
+  padding: 10px 20px;
+}
+
+.logo {
+  font-size: 1.5rem;
+  border-radius: 50%;
+  width: 50px
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+.sideMenu {
+  background-color: #333;
+  color: white;
+  width: 300px;
+  height: 135vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.menu-item:hover {
+  background-color: #555;
+}
+
+.table-container {
+  /* background-color: red; */
+  width: 100%;
+  height: 100vh;
+  padding: 0 20px;
+}
+button.add:hover {
+  background-color: #41b1b7;
+  color: white;
+  cursor: pointer;
+}
+
+.menu-item {
+  padding: 15px 0;
+  width: 100%;
+  color: whitesmoke;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  border: 1px solid gray;
+}
+
+.toolbar {
+  display: flex;
+  /* background-color: red; */
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 10px;
+}
+
+.search {
+  padding: 8px;
+  width: 25%;
+}
+
+.status {
+  padding: 8px;
+  width: 25%;
+}
+
+.add {
+  padding: 10px;
+  width: 15%;
+  background-color: slategray;
+  border-radius: 10px;
+  color: whitesmoke;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+}
+
+.table {
+  width: 100%;
+  margin: 10px;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid gray;
+  padding: 10px;
+  text-align: center;
+}
+
+.pagination {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0px;
+  margin: 20px 0;
+}
+
+.pagination button {
+  padding: 10px;
+  border: 1px solid black;
+  background-color: slategray;
+  color: whitesmoke;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.add-modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 35%;
+  background-color: lightblue;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  z-index: 1000;
+}
+
+.modal-header {
+  padding: 16px;
+  background-color: #007bff;
+  color: white;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  font-weight: 700;
+  font-size: 22px;
+}
+
+.modal-content {
+  padding: 16px;
+}
+
+.input-line {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.input {
+  padding: 5px;
+}
+
+.input-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 8px 0;
+}
+
+label {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+.buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.buttons button {
+  padding: 8px 10px;
+  border-radius: 5px;
+  border: none;
+  /* margin-left: 8px; */
+}
+
+.delete-modal {
+  display: none;
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  padding: 20px;
+  transform: translate(-50%, -50%);
+  /* width: 30%; */
+  background-color: grey;
+  border-radius: 8px;
+  z-index: 1000;
+}
+
+.delete-content i {
+  font-size: 4rem;
+  color: red;
+  background-color: lightcoral;
+  padding: 10px 25px;
+  border-radius: 50%;
+}
+
+.delete-content p {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.delete-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0px;
+  justify-content: center;
+}
