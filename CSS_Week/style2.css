@@ -1,0 +1,16 @@
+.box {
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  .box-lg{
+      height: 300px;
+  }
+  .box-md{
+      height:200px;
+  }
+  .box-sm{
+      height:95px;
+  }
