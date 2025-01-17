@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task_2</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container text-center mt-5">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#registrationModal">
+            Open Registration Form
+        </button>
+    </div>
+
+    <div class="modal fade p-4" id="registrationModal" tabindex="-1" aria-labelledby="registrationModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content p-4 bg-secondary-subtle">
+                <h4 class="modal-title text-center mb-3" id="registrationModalLabel">Register</h4>
+                <p class="text-body-tertiary text-center fs-6">Create your account. It's free and only takes a minute.</p>
+
+                <div class="modal-body">
+                    <form id="registrationForm" novalidate>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" placeholder="First Name" pattern="^[A-Za-z]+(?:\s[A-Za-z]+)*$" required>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" placeholder="Last Name" required>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-12">
+                                <input type="email" class="form-control" id="exampleInputEmail1" pattern="^[^@]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,}$" placeholder="Email" required>
+                            </div>    
+                        </div>
+
+                        <div class="mb-3 col-md-12">
+                            <input type="password" class="form-control" id="password" placeholder="Enter your password"
+                                pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" required>
+                            <div class="invalid-feedback">
+                                Password must be at least 8 characters long and contain at least one uppercase letter,
+                                one lowercase letter, one number, and one special character.
+                            </div>
+                        </div>
+
+                        <div class="mb-3 col-md-12">
+                            <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm password" required>
+                            <div class="invalid-feedback">
+                                Password does not match.
+                            </div>
+                        </div>
+
+                        <div class="mb-3 col-md-12">
+                            <div class="form-check mt-3">
+                                <input type="checkbox" class="form-check-input" id="terms" required>
+                                <label class="form-check-label" for="terms">I accept the <a href="#">Terms of Use</a> & <a href="#">Privacy Policy</a></label>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-success w-100 col-md-12">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('registrationForm');
+            const password = document.getElementById('password');
+            const confirmPassword = document.getElementById('confirmPassword');
+
+            form.addEventListener('submit', function (event) {
+              event.preventDefault();
+                if (!validatePasswords()) {
+                    event.stopPropagation();
+                }
+
+                form.classList.add('was-validated');
+            });
+
+            function validatePasswords() {
+                const passwordValue = password.value.trim();
+                const confirmPasswordValue = confirmPassword.value.trim();
+
+    
+                const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+                let isValid = true;
+
+                if (!passwordRegex.test(passwordValue)) {
+                    password.classList.add('is-invalid');
+                    password.classList.remove('is-valid');
+                    isValid = false;
+                } else {
+                    password.classList.remove('is-invalid');
+                    password.classList.add('is-valid');
+                }
+
+                if (passwordValue !== confirmPasswordValue || confirmPasswordValue === "") {
+                    confirmPassword.classList.add('is-invalid');
+                    confirmPassword.classList.remove('is-valid');
+                    isValid = false;
+                } else {
+                    confirmPassword.classList.remove('is-invalid');
+                    confirmPassword.classList.add('is-valid');
+                }
+
+                return isValid;
+            }
+
+            password.addEventListener('input', validatePasswords);
+            confirmPassword.addEventListener('input', validatePasswords);
+        });
+    </script>
+</body>
+</html>
