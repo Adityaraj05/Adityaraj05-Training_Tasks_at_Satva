@@ -1,172 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task_5</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-      .btn {
-        background-color: rgb(123, 204, 254);
-        color: white;
-      }
-      .form-label {
-        font-weight: 700;
-      }
+        .custom-modal-width {
+            max-width: 60%;
+        }
     </style>
-  </head>
-  <body>
-    <div class="container mt-5">
-      <button
-        type="button"
-        class="btn"
-        data-bs-toggle="modal"
-        data-bs-target="#appointmentModal"
-      >
-        Open Appointment Scheduler
-      </button>
-    </div>
-    <div
-      class="modal fade"
-      id="appointmentModal"
-      tabindex="-1"
-      aria-labelledby="appointmentModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-md">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="appointmentModalLabel">
-              Appointment Scheduler
-            </h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body px-4">
-            <form id="appointmentForm">
-              <div class="mb-3">
-                <label for="firstName" class="form-label">First Name</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="firstName"
-                  placeholder="Enter Your First Name"
-                  required
-                />
-                <div class="invalid-feedback">First name is required.</div>
-              </div>
-              <div class="mb-3">
-                <label for="lastName" class="form-label">Last Name</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="lastName"
-                  placeholder="Enter Your Last Name"
-                  required
-                />
-                <div class="invalid-feedback">Last name is required.</div>
-              </div>
-              <div class="mb-3">
-                <label for="email" class="form-label">UNCC Email</label>
-                <input
-                  type="email"
-                  class="form-control"
-                  id="email"
-                  p
-                  pattern="^[^.]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,}$"
-                  placeholder="Enter Your UNCC Email"
-                  required
-                />
-                <div class="invalid-feedback">
-                  Please provide a valid email address.
-                </div>
-              </div>
-              <div class="mb-3">
-                <label for="course" class="form-label"
-                  >What Course Do You Need Help With?</label
-                >
-                <select class="form-select" id="course" required>
-                  <option value="">Select a Course</option>
-                  <option value="1">Course 1</option>
-                  <option value="2">Course 2</option>
-                  <option value="3">Course 3</option>
-                </select>
-                <div class="invalid-feedback">Please select a course.</div>
-              </div>
-              <div class="mb-3">
-                <label for="tutor" class="form-label"
-                  >Name of Preferred Tutor</label
-                >
-                <select class="form-select" id="tutor" required>
-                  <option value="">Anyone Available</option>
-                  <option value="1">Tutor 1</option>
-                  <option value="2">Tutor 2</option>
-                  <option value="3">Tutor 3</option>
-                </select>
-                <div class="invalid-feedback">Please select a tutor.</div>
-              </div>
-              <div class="mb-3">
-                <label for="date" class="form-label">Calendar Date</label>
-                <input
-                  type="date"
-                  class="form-control"
-                  id="date"
-                  placeholder="Example: May 28 2014"
-                  required
-                />
-                <div class="invalid-feedback">Please enter a valid date.</div>
-              </div>
-              <div class="mb-3">
-                <label for="time" class="form-label">Preferred Time</label>
-                <input
-                  type="time"
-                  class="form-control"
-                  id="time"
-                  value="08:00"
-                  required
-                />
-                <div class="invalid-feedback">Please select a valid time.</div>
-              </div>
-              <div class="w-100 d-flex">
-                <button type="submit" class="btn ms-auto">
-                  Schedule Appointment
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
+</head>
+<body>
+    <div class="container text-center mt-5">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Launch Appointment Scheduler!
+        </button>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog custom-modal-width">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Appointment Scheduler</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="appointmentForm">
+                        <div class="row mb-3">
+                            <div class="col-md-12">
+                                <label for="fname" class="form-label fw-bold mb-2">First Name</label>
+                                <input type="text" class="form-control" placeholder="First Name" pattern="^[A-Za-z]+(?:\s[A-Za-z]+)*$" id="fname" required>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-12">
+                                <label for="lname" class="form-label fw-bold mb-2">Last Name</label>
+                                <input type="text" class="form-control" id="lname" placeholder="Last Name" pattern="^[A-Za-z]+(?:\s[A-Za-z]+)*$" required>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-12">
+                                <label for="email" class="form-label fw-bold mb-2">UNCC Email</label>
+                                <input type="email" class="form-control" id="email" pattern="^[^.]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,}$" placeholder="Email" required>
+                            </div>    
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-12">
+                                <label for="course" class="form-label fw-bold mb-2">What course do you need help with?</label>
+                                <select class="form-select" id="course" required>
+                                    <option value="" selected>Select a course</option>
+                                    <option>HTML</option>
+                                    <option>CSS</option>
+                                    <option>Java</option>
+                                    <option>C#</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-12">
+                                <label for="course" class="form-label fw-bold mb-2">Name of preferred tutor.</label>
+                                <select class="form-select" id="tutor" required>
+                                    <option value="" selected>Anyone available</option>
+                                    <option>Harsh Singh</option>
+                                    <option>Kishor Ranesha</option>
+                                    <option>Rajdip Chavda</option>
+                                    <option>Aditya Singh</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row mb-2">
+                            <div class="col-md-12">
+                                <label for="date" class="form-label fw-bold mb-2">Calendar Date</label>
+                                <input type="date" class="form-control" id="date" required>
+                            </div>
+                        </div>
+
+                        <div class="row mb-2">
+                            <div class="col-md-12">
+                                <label for="time" class="form-label fw-bold mb-2">Preferred time</label>
+                                <input type="time" class="form-control" id="time" required>
+                            </div>
+                        </div>
+
+                        <div class="col-8 offset-4">
+                            <button type="submit" class="btn btn-primary w-100">Schedule Appointment</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
 
     <script>
-document.addEventListener("DOMContentLoaded", function () {
-  const form = document.getElementById("appointmentForm");
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('appointmentForm');
+            const modal = new bootstrap.Modal(document.getElementById('exampleModal'));
+            const inputs = form.querySelectorAll('input[required], select[required]');
 
-  form.addEventListener("submit", function (event) {
-    if (!form.checkValidity()) {
-      event.preventDefault();
-      event.stopPropagation();
-      form.classList.add("was-validated");
-    } else {
-      event.preventDefault(); 
-      alert("Appointment Scheduled Successfully!");
-      form.reset();
-      form.classList.remove("was-validated"); 
-    }
-  });
-});
+            inputs.forEach(input => {
+                input.addEventListener('input', function () {
+                    input.classList.remove('is-invalid', 'is-valid');
+                });
 
-
-
+                input.addEventListener('blur', function () {
+                    if (input.validity.valid) {
+                        input.classList.remove('is-invalid');
+                        input.classList.add('is-valid');
+                    } else {
+                        input.classList.remove('is-valid');
+                        input.classList.add('is-invalid');
+                    }
+                });
+            });
+        });
     </script>
-  </body>
+</body>
 </html>
