@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task_5</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="container form-container">
+      <div class="form-title">Shipping Address</div>
+      <form class="needs-validation" novalidate>
+        <div class="row g-3">
+         
+          <div class="col-md-6">
+            <label for="firstName" class="form-label"></label>
+            <input
+              type="text"
+              class="form-control"
+              id="firstName"
+              placeholder="First Name"
+              required
+            />
+            <div class="invalid-feedback">First Name is required.</div>
+          </div>
+          <div class="col-md-6">
+            <label for="lastName" class="form-label"></label>
+            <input
+              type="text"
+              class="form-control"
+              id="lastName"
+              placeholder="Last Name"
+              required
+            />
+            <div class="invalid-feedback">Last Name is required.</div>
+          </div>
+         
+          <div class="col-md-9">
+            <label for="address" class="form-label"></label>
+            <input
+              type="text"
+              class="form-control"
+              id="address"
+              placeholder="Address"
+              required
+            />
+            <div class="invalid-feedback">Address is required.</div>
+          </div>
+          <div class="col-md-3">
+            <label for="apt" class="form-label"></label>
+            <input
+              type="text"
+              class="form-control"
+              id="apt"
+              placeholder="Apt"
+              required
+            />
+            <div class="invalid-feedback">Apt is required.</div>
+          </div>
+        
+          <div class="col-md-4">
+            <label for="city" class="form-label"></label>
+            <input
+              type="text"
+              class="form-control"
+              id="city"
+              placeholder="City"
+              required
+            />
+            <div class="invalid-feedback">City is required.</div>
+          </div>
+          <div class="col-md-4">
+            <label for="state" class="form-label"></label>
+            <select
+              class="form-select"
+              id="state"
+              required
+            >
+              <option value="">State</option>
+              <option value="AL">Alabama</option>
+              <option value="AK">Alaska</option>
+              <option value="AZ">Arizona</option>
+             
+            </select>
+            <div class="invalid-feedback">State is required.</div>
+          </div>
+          <div class="col-md-4">
+            <label for="zip" class="form-label"></label>
+            <input
+              type="text"
+              class="form-control"
+              id="zip"
+              placeholder="ZIP Code"
+              required
+            />
+            <div class="invalid-feedback">ZIP Code is required.</div>
+          </div>
+          
+          <div class="col-md-6">
+            <label for="email" class="form-label"></label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              placeholder="Email Address for Receipt"
+              required
+            />
+            <div class="invalid-feedback">
+              Please provide a valid email address.
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="phone" class="form-label"></label>
+            <input
+              type="tel"
+              class="form-control"
+              id="phone"
+              placeholder="Primary Phone"
+              required
+            />
+            <div class="invalid-feedback">
+              Please provide a valid phone number.
+            </div>
+          </div>
+        </div>
+        
+        <div class="text-start mt-4">
+          <button type="submit" class="btn btn-continue">CONTINUE</button>
+        </div>
+      </form>
+    </div>
+
+    <script>
+     
+      (function () {
+        "use strict";
+        const forms = document.querySelectorAll(".needs-validation");
+        Array.from(forms).forEach(function (form) {
+          form.addEventListener(
+            "submit",
+            function (event) {
+              if (!form.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+              form.classList.add("was-validated");
+            },
+            false
+          );
+        });
+      })();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

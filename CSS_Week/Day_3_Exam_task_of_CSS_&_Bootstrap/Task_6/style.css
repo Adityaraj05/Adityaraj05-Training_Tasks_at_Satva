@@ -1,0 +1,64 @@
+body {
+    font-family: 'Roboto';
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    
+}
+
+.navbar {
+    padding: 0% 5%;
+    background-color: rgb(10, 152, 152);
+}
+
+.nav-link{
+    color:white;
+}
+
+.nav-link:hover {
+            color: white;
+            background-color: rgb(16, 206, 206);
+        }
+
+
+.nav-link:hover {
+    color: rgb(208, 202, 202);
+ 
+}
+
+.navbar-brand {
+    color: white;
+    font-size: 2.5rem;
+}
+.navbar-brand:hover{
+    color:rgb(208, 202, 202);
+}
+
+.card {
+    border: none;
+}
+
+.carousel {
+    margin: 3% 4%;
+}
+
+.carousel-item img {
+    height: 600px;
+    object-fit: cover;
+}
+
+.med-icon {
+    font-size: 4rem;
+}
+
+.btn {
+    border: 1px solid gray;
+    margin: auto;
+    font-size: 1.1rem;
+   
+}
+
+.content {
+    color: white;
+}

@@ -1,0 +1,25 @@
+body{
+    font-family: 'Roboto';
+}
+.box {
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  .box-lg{
+      height: 262px;
+  }
+  .box-md{
+      height:125px;
+  }
+  .box-1{
+    background-color: brown;
+    color:white;
+  }
+  .box-2{
+    background-color: rgb(56, 110, 181);
+    color:white;
+  }
+ 
