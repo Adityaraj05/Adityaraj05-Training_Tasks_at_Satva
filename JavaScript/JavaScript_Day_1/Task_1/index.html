@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task_1</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="card p-4">
+        <form id="calculationForm">
+          <div class="row mb-2">
+            <div class="col-md-4 col-12 mb-md-0 mb-3">
+              <label for="T1" class="form-label">T1</label>
+              <input
+                type="text"
+                id="T1"
+                class="form-control"
+                placeholder="Enter a number"
+              />
+              <small id="T1Error" class="text-danger"></small>
+            </div>
+            <div class="col-md-4 col-12 mb-md-0 mb-3">
+              <label for="T2" class="form-label">T2</label>
+              <input
+                type="text"
+                id="T2"
+                class="form-control"
+                placeholder="Enter a number"
+              />
+              <small id="T2Error" class="text-danger"></small>
+            </div>
+            <div class="col-md-4 col-12">
+              <label for="T3" class="form-label">T3</label>
+              <input
+                type="text"
+                id="T3"
+                class="form-control"
+                placeholder="Enter a number"
+              />
+              <small id="T3Error" class="text-danger"></small>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="mb-4">
+            <label for="ANS" class="form-label">ANS</label>
+            <input
+              type="text"
+              id="ANS"
+              class="form-control"
+              disabled
+            />
+          </div>
+
+          <div class="divider"></div>
+
+          <button type="button" id="calculateBtn" class="btn btn-primary">
+            Calculate
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      document
+        .getElementById("calculateBtn")
+        .addEventListener("click", function () {
+          const T1 = document.getElementById("T1").value.trim();
+          const T2 = document.getElementById("T2").value.trim();
+          const T3 = document.getElementById("T3").value.trim();
+          const ANS = document.getElementById("ANS");
+
+        
+          document.getElementById("T1Error").textContent = "";
+          document.getElementById("T2Error").textContent = "";
+          document.getElementById("T3Error").textContent = "";
+
+          let isValid = true;
+
+         
+          if (!T1) {
+            document.getElementById("T1Error").textContent = "T1 is required.";
+            isValid = false;
+          }
+          if (!T2) {
+            document.getElementById("T2Error").textContent = "T2 is required.";
+            isValid = false;
+          }
+          if (!T3) {
+            document.getElementById("T3Error").textContent = "T3 is required.";
+            isValid = false;
+          }
+
+          if (!isValid) {
+            return;
+          }
+
+         
+          const validNumberPattern = /^\d{1,9}$/; 
+          if (!validNumberPattern.test(T1) || !validNumberPattern.test(T2) || !validNumberPattern.test(T3)) {
+            ANS.value = "Please enter valid numbers (1 to 9 digits).";
+            return;
+          }
+
+         
+          const num1 = parseInt(T1, 10);
+          const num2 = parseInt(T2, 10);
+          const num3 = parseInt(T3, 10);
+
+      
+          const col1 = num1 + num2;
+          const col2 = num3;
+          const col3 = `${num1 + num2}${num3}`;
+
+        
+          ANS.value = `${col1} | ${col2} | ${col3}`;
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

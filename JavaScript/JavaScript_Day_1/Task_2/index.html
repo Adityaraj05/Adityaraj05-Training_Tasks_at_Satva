@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Task_2</title>
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+<link rel="stylesheet" href="./style.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<body>
+    <div class="container box col-md-9 col-11">
+        <h1 class="text-center">Registration</h1>
+        <form id="regForm">
+           
+
+            <div id="formDetails" style="display:none;">
+            </div>
+
+            <div class="component">
+                <p class="fs-3 main-heading"><b>Personal Details</b></p>
+                <input type="text" id="firstName" class="input form-control" placeholder="Enter Your First Name">
+                <small id="firstNameError" class="text-danger"></small>
+
+                <input type="text" id="lastName" class="input form-control" placeholder="Enter Your Last Name">
+                <small id="lastNameError" class="text-danger"></small>
+                <select name="gender" class="input form-control" id="gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+
+                <input type="text" id="zip" class="input form-control" placeholder="Enter Zip Code">
+                <small id="zipError" class="text-danger"></small>
+            </div>
+
+            <div class="component" id="step2" style="display:none;">
+                <p class="fs-3 main-heading"><b>Profile Infomation</b></p>
+                <input type="email" id="email" class="input form-control" placeholder="Email...">
+                <small id="emailError" class="text-danger"></small>
+                <input type="text" id="userName" class="input form-control" placeholder="Username">
+                <input type="password" id="password" class="input form-control" placeholder="Password...">
+                <small id="passwordError" class="text-danger"></small>
+                <input type="password" id="cpassword" class="input form-control" placeholder="Confirm Password...">
+                <small id="cpasswordError" class="text-danger"></small>
+            </div>
+
+            <div class="component" id="step3" style="display:none;">
+                <p class="fs-3 main-heading"><b>Bank Information</b></p>
+                <select name="bank" class="input form-control" id="bank">
+                    <option value="" disabled selected>Choose Bank..</option>
+                    <option value="SBI">SBI</option>
+                    <option value="HDFC">HDFC</option>
+                    <option value="AXIS">AXIS</option>
+                </select>
+                <small id="bankError" class="text-danger"></small>
+                <select name="branch" class="input form-control" id="branch">
+                    <option value="" disabled selected>Choose Branch</option>
+                    <option value="branch1">Branch 1</option>
+                    <option value="branch2">Branch 2</option>
+                </select>
+                <small id="branchError" class="text-danger"></small>
+                <select name="account" class="input form-control" id="account">
+                    <option value="" disabled selected>Choose Account</option>
+                    <option value="saving">Saving</option>
+                    <option value="current">Current</option>
+                </select>
+                <small id="accountError" class="text-danger"></small>
+                <input type="text" id="accountNumber" class="input form-control" placeholder="Account Number...">
+                <small id="accountNumberError" class="text-danger"></small>
+            </div>
+
+            <div class="component">
+                <p class="fs-3 main-heading"><b>Payment Details</b></p>
+                <select name="card" class="input form-control" id="card">
+                    <option value="" disabled selected>Select Card Type</option>
+                    <option value="VISA">VISA</option>
+                    <option value="MASTER CARD">MASTER CARD</option>
+                    <option value="RuPay">RuPay</option>
+                </select>
+                <small id="cardError" class="text-danger"></small>
+            
+                <input type="text" id="holderName" class="input form-control" placeholder="Holder name...">
+                <small id="holderNameError" class="text-danger"></small>
+            
+                <input type="text" id="cardNumber" class="input form-control" placeholder="Card number...">
+                <small id="cardNumberError" class="text-danger"></small>
+            
+                <input type="text" id="cvv" class="input form-control" placeholder="CVV...">
+                <small id="cvvError" class="text-danger"></small>
+            
+                <input type="month" id="date" class="input form-control">
+                <small id="dateError" class="text-danger"></small>
+            </div>
+            
+
+            <div id="btns-container">
+                <div class="btns">
+                    <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+                    <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+                </div>
+            </div>
+            <div style="text-align:center;margin-top:40px;">
+                <span class="step active"></span>
+                <span class="step"></span>
+                <span class="step"></span>
+                <span class="step"></span>
+
+            </div>
+
+        </form>
+
+
+    </div>
+
+    <script src="./script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
