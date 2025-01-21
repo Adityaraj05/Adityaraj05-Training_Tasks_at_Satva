@@ -1,0 +1,95 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f3f3f3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  .calculator {
+    width: 800px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+  }
+  
+  .display {
+    background: #222;
+    text-align: right;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  
+  #result {
+    width: 100%;
+    height: 60px;
+    border: none;
+    background: #222;
+    color: #fff;
+    font-size: 2rem;
+    text-align: right;
+  }
+  
+  .buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  
+  button {
+    height: 60px;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    background-color: #f9f9f9;
+    color: #000;
+  }
+  
+  button:hover {
+    background-color: #e6e6e6;
+  }
+  
+  button.equal {
+    background-color: #f57c00;
+   
+    color: white;
+    grid-row: span 2;
+  }
+  
+  button.equal:hover {
+    background-color: #ff8c00;
+  }
+  
+  button.zero {
+    grid-column: span 1;
+  }
+  
+  button:active {
+    transform: scale(0.95);
+  }
+
+  .buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 60px); /* Define 5 rows of equal height */
+    gap: 5px;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  
+  button.equal {
+    background-color: #f57c00;
+    color: white;
+    grid-row: 3 / span 3; /* Start from row 3 and span the remaining rows */
+    grid-column: 4; /* Place it in the fourth column */
+    height: auto; /* Remove any explicit height */
+  }
+  
+  

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task_2</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+          
+</head>
+<body>
+    <div class="container mt-5">
+        <form class="needs-validation" id="dataForm" novalidate>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="name" minlength="3" required>
+                    <div class="invalid-feedback">Please enter at least 3 characters for your name.</div>
+                </div>
+                <div class="col-md-6">
+                    <label for="mobile" class="form-label">Mobile</label>
+                    <input type="text" class="form-control" id="mobile" pattern="^[1-9]\d[{9}$" required>
+                    <div class="invalid-feedback">Please enter a valid 10-digit mobile number.</div>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" required>
+                    <div class="invalid-feedback">Please enter a valid email address.</div>
+                </div>
+                <div class="col-md-6">
+                    <label for="collegeName" class="form-label">College Name</label>
+                    <input type="text" class="form-control" id="collegeName" pattern="^[A-Za-z\s]{3,}$" required>
+                    <div class="invalid-feedback">Please enter your college name (at least 3 characters).</div>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="cgpa" class="form-label">CGPA</label>
+                    <input type="number" class="form-control" id="cgpa" min="0" max="10" step="0.01" required>
+                    <div class="invalid-feedback">Please enter your CGPA (1-10), up to 2 decimal place values.</div>
+                </div>
+                <div class="col-md-6">
+                    <label for="branchName" class="form-label">Branch Name</label>
+                    <select class="form-select" id="branchName" required>
+                        <option selected disabled value="">Choose Branch...</option>
+                        <option value="CSE">CSE</option>
+                        <option value="ECE">ECE</option>
+                        <option value="ME">ME</option>
+                    </select>
+                    <div class="invalid-feedback">Please select a branch.</div>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    <label for="state" class="form-label">State</label>
+                    <select class="form-select" id="state" required>
+                        <option selected disabled value="">Choose State...</option>
+                        <option value="Gujarat">Gujarat</option>
+                        <option value="Maharashtra">Maharashtra</option>
+                        <option value="Rajasthan">Rajasthan</option>
+                    </select>
+                    <div class="invalid-feedback">Please select a state.</div>
+                </div>
+                <div class="col-md-4">
+                    <label for="city" class="form-label">City</label>
+                    <select class="form-select" id="city" required>
+                        <option selected disabled value="">Choose City...</option>
+                    </select>
+                    <div class="invalid-feedback">Please select a city.</div>
+                </div>
+                <div class="col-md-4">
+                    <label for="zip" class="form-label">Zip</label>
+                    <input type="text" class="form-control" id="zip" pattern="\d{6}" required>
+                    <div class="invalid-feedback">Please enter a valid 6-digit zip code.</div>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-5">
+                    <label for="studyStart" class="form-label">From When You Studied</label>
+                    <input type="date" class="form-control" id="studyStart" required>
+                    <div class="invalid-feedback">Please select a start date.</div>
+                </div>
+                <div class="col-md-2 d-flex align-items-center justify-content-center">
+                    <span class="form-label mt-5">To</span>
+                </div>
+                <div class="col-md-5">
+                    <label for="studyEnd" class="form-label">End</label>
+                    <input type="date" class="form-control" id="studyEnd" required>
+                    <div class="invalid-feedback">Please select an end date.</div>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col">
+                    <label class="form-label">Some of Your Results Pic's in Slider</label>
+                    <button type="button" class="btn btn-primary" id="uploadBtn">Upload Pictures</button>
+                    <input type="file" id="fileInput" class="d-none" accept="image/*" multiple>
+                    <div id="carouselExample" class="carousel slide mt-3" data-bs-ride="carousel">
+                        <div class="carousel-inner" id="carouselImages"></div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <button type="button" class="btn btn-info me-2" id="addRow">Add Row</button>
+                    <button type="button" class="btn btn-success" id="exportBtn">Export</button>
+                </div>
+            </div>
+        </form>
+        <div class="table-responsive">
+        <table class="table table-striped mt-5" id="dataTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Mobile</th>
+                    <th>Email</th>
+                    <th>College Name</th>
+                    <th>CGPA</th>
+                    <th>Branch Name</th>
+                    <th>State</th>
+                    <th>City</th>
+                    <th>Zip</th>
+                    <th>Study Period</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.1/xlsx.full.min.js"></script>
+    <script>
+       document.addEventListener('DOMContentLoaded', function () {
+    const cities = {
+        'Gujarat': ['Ahmedabad', 'Surat', 'Vadodara'],
+        'Maharashtra': ['Mumbai', 'Pune', 'Nagpur'],
+        'Rajasthan': ['Jaipur', 'Udaipur', 'Jodhpur']
+    };
+
+    const stateSelect = document.getElementById('state');
+    const citySelect = document.getElementById('city');
+    const fileInput = document.getElementById('fileInput');
+    const carouselImages = document.getElementById('carouselImages');
+    
+    let storedData = JSON.parse(localStorage.getItem('formData')) || [];
+    const dataTableBody = document.querySelector('#dataTable tbody');
+    
+    function renderTable() {
+        dataTableBody.innerHTML = '';
+        storedData.forEach(function (data) {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${data.id}</td>
+                <td>${data.name}</td>
+                <td>${data.mobile}</td>
+                <td>${data.email}</td>
+                <td>${data.collegeName}</td>
+                <td>${data.cgpa}</td>
+                <td>${data.branchName}</td>
+                <td>${data.state}</td>
+                <td>${data.city}</td>
+                <td>${data.zip}</td>
+                <td>${data.studyPeriod}</td>
+                <td></td>
+            `;
+            dataTableBody.appendChild(row);
+        });
+    }
+
+    renderTable();
+
+    stateSelect.addEventListener('change', function () {
+        const selectedState = stateSelect.value;
+        const citiesForState = cities[selectedState] || [];
+        citySelect.innerHTML = '<option selected disabled value="">Choose City...</option>';
+        citiesForState.forEach(function (city) {
+            const option = document.createElement('option');
+            option.value = city;
+            option.textContent = city;
+            citySelect.appendChild(option);
+        });
+    });
+
+    document.getElementById('uploadBtn').addEventListener('click', function () {
+        fileInput.click();
+    });
+
+    fileInput.addEventListener('change', function () {
+        carouselImages.innerHTML = '';
+        Array.from(fileInput.files).forEach(function (file, index) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                const carouselItem = document.createElement('div');
+                carouselItem.classList.add('carousel-item');
+                if (index === 0) carouselItem.classList.add('active');
+                carouselItem.innerHTML = `
+                    <img src="${e.target.result}" class="d-block w-100" alt="Image">
+                `;
+                carouselImages.appendChild(carouselItem);
+            };
+            reader.readAsDataURL(file);
+        });
+    });
+
+    // Add validation on blur event
+    const formFields = document.querySelectorAll('.form-control, .form-select');
+
+    formFields.forEach(field => {
+        field.addEventListener('blur', function () {
+            validateField(field);
+        });
+    });
+
+    // Validate each field
+    function validateField(field) {
+        const isValid = field.checkValidity();
+
+        if (isValid) {
+            field.classList.remove('is-invalid');
+            field.classList.add('is-valid');
+        } else {
+            field.classList.remove('is-valid');
+            field.classList.add('is-invalid');
+        }
+    }
+
+    document.getElementById('addRow').addEventListener('click', function () {
+        const formData = {
+            id: storedData.length + 1,
+            name: document.getElementById('name').value.trim(),
+            mobile: document.getElementById('mobile').value.trim(),
+            email: document.getElementById('email').value.trim(),
+            collegeName: document.getElementById('collegeName').value.trim(),
+            cgpa: document.getElementById('cgpa').value.trim(),
+            branchName: document.getElementById('branchName').value,
+            state: document.getElementById('state').value,
+            city: document.getElementById('city').value,
+            zip: document.getElementById('zip').value.trim(),
+            studyPeriod: `${document.getElementById('studyStart').value} To ${document.getElementById('studyEnd').value}`
+        };
+
+        let isValid = true;
+
+        // Validate fields
+        formFields.forEach(function (input) {
+            if (input.value === '' || (input.type === 'number' && input.value <= 0)) {
+                input.classList.add('is-invalid');
+                isValid = false;
+            } else {
+                input.classList.remove('is-invalid');
+                input.classList.add('is-valid');
+            }
+        });
+
+        if (isValid) {
+            storedData.push(formData);
+            localStorage.setItem('formData', JSON.stringify(storedData));
+            renderTable();
+        } else {
+            alert("Please fill all fields correctly.");
+        }
+    });
+
+    document.getElementById('exportBtn').addEventListener('click', function () {
+        const worksheetData = storedData.map(data => ({
+            ID: data.id,
+            Name: data.name,
+            Mobile: data.mobile,
+            Email: data.email,
+            College: data.collegeName,
+            CGPA: data.cgpa,
+            Branch: data.branchName,
+            State: data.state,
+            City: data.city,
+            Zip: data.zip,
+            "Study Period": data.studyPeriod
+        }));
+
+        const worksheet = XLSX.utils.json_to_sheet(worksheetData);
+        const workbook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(workbook, worksheet, "Data");
+        XLSX.writeFile(workbook, "data.xlsx");
+    });
+});
+
+    </script>
+</body>
+</html>
