@@ -1,0 +1,50 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    padding: 30px;
+}
+
+h2 {
+    text-align: center;
+    color: #007bff;
+    margin-bottom: 30px;
+}
+
+#calendar {
+    margin-bottom: 30px;
+}
+
+.modal-content {
+    border-radius: 8px;
+}
+
+.modal-header {
+    background-color: #007bff;
+    color: white;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.form-label {
+    font-weight: bold;
+}
+
+.form-control {
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.btn-primary, .btn-danger {
+    width: 100%;
+    font-weight: bold;
+}
+
+.btn-primary:hover, .btn-danger:hover {
+    opacity: 0.8;
+}
+
+.modal-footer {
+    text-align: center;
+}

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task_3</title>
+  
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .output {
+      margin-top: 20px;
+    }
+
+    .tax-Exemptions {
+      margin-top: 15px;
+    }
+
+    p {
+      margin-left: 50px;
+    }
+
+    .notes {
+      display: flex;
+    }
+
+    .notes p {
+      margin-left: 10px;
+      margin-top: 7px;
+    }
+
+    .tax-info table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    .tax-info th, .tax-info td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: start;
+    }
+
+    .tax-info th {
+      background-color: #ccc;
+    }
+
+    .tax-info .taxable {
+      background-color: green;
+      color: white;
+    }
+
+    .tax-info .nontaxable {
+      background-color: navy;
+      color: white;
+    }
+
+    @media (max-width: 600px) {
+      .tax-info table, .tax-info thead, .tax-info tbody, .tax-info th, .tax-info td, .tax-info tr {
+        display: block;
+      }
+
+      .tax-info thead {
+        display: none;
+      }
+
+      .tax-info tr {
+        margin-bottom: 15px;
+      }
+
+      .tax-info td {
+        display: flex;
+        justify-content: space-between;
+        padding-left: 50%;
+        text-align: left;
+        position: relative;
+      }
+
+      .tax-info td:before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        font-weight: bold;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container my-5">
+    <!-- Card -->
+    <div class="card shadow-lg">
+      <div class="card-header text-center">
+        <h3>Tax Slab Calculation</h3>
+      </div>
+      <div class="card-body">
+
+        <form id="taxForm" novalidate>
+          <div class="form-row">
+            <div class="col-12">
+              <label for="name">Name:</label>
+              <input type="text" class="form-control" id="name" required>
+              <div class="invalid-feedback">Please provide your name.</div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="col-12">
+              <label for="mobile">Mobile:</label>
+              <input type="text" class="form-control" id="mobile" required>
+              <div class="invalid-feedback">Please provide a mobile number.</div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="col-12">
+              <label for="birthdate">Birthdate:</label>
+              <input type="date" class="form-control" id="birthdate" required>
+              <div class="invalid-feedback">Please provide your birthdate.</div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="col-12">
+              <label for="gender">Gender:</label>
+              <select class="form-control" id="gender" required>
+                <option value="" disabled selected>Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="senior">Senior Citizen</option>
+              </select>
+              <div class="invalid-feedback">Please select your gender.</div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="col-12">
+              <label for="income">Income:</label>
+              <input type="number" class="form-control" id="income" required>
+              <div class="invalid-feedback">Please provide your income.</div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="col-12">
+              <label for="loan">Loan:</label>
+              <input type="number" class="form-control" id="loan" required>
+              <div class="invalid-feedback">Please provide your loan amount.</div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="col-12">
+              <label for="investment">Investment:</label>
+              <input type="number" class="form-control" id="investment" required>
+              <div class="invalid-feedback">Please provide your investment amount.</div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="col-6">
+              <button type="submit" class="btn btn-success btn-block">Calculate</button>
+            </div>
+            <div class="col-6">
+              <button type="reset" class="btn btn-danger btn-block">Reset</button>
+            </div>
+          </div>
+        </form>
+
+        <div class="output" id="output"></div>
+
+        <div class="tax-info">
+          <h3>Tax Slabs</h3>
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>For Men:</th>
+                <th>For Women:</th>
+                <th>For Senior Citizen:</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Income upto: 2.4L - No TAX</td>
+                <td>Income upto: 2.6L - No TAX</td>
+                <td>Income upto: 3L - No TAX</td>
+              </tr>
+              <tr>
+                <td>Income: 2.4L to 6L - 10%</td>
+                <td>Income: 2.6L to 7L - 10%</td>
+                <td>Income: 3L to 7L - 10%</td>
+              </tr>
+              <tr>
+                <td>Income: above 6L - 20%</td>
+                <td>Income: above 7L - 20%</td>
+                <td>Income: above 7L - 20%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="tax-Exemptions">
+          <h4>Tax Exemptions:</h4>
+          <p>1. 80% of Loan amount or 20% of income, whichever is less, is non-taxable. If the Total income is 200 and the Loan is 100, 80% of Loan = 80 INR and 20% of income = 40 INR, so the lesser one is 40 INR, which is non-taxable, and 160 INR is payable.</p>
+          <p>2. Any amount invested <= 1L INR is non-taxable. If I invested 1,60,000, then 1,00,000 is non-taxable.</p>
+        </div>
+
+        <div class="notes">
+          <h4>Note:</h4>
+          <p>If Taxable amount has No TAX for any category, then the background color will be Green; otherwise, it will be Navy Blue.</p>
+        </div>
+
+      </div>
+    </div>
+    <!-- End of Card -->
+  </div>
+
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.0/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script>
+    document.getElementById("taxForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const name = document.getElementById("name").value;
+      const mobile = document.getElementById("mobile").value;
+      const birthdate = document.getElementById("birthdate").value;
+      const gender = document.getElementById("gender").value;
+      const income = parseFloat(document.getElementById("income").value);
+      const loan = parseFloat(document.getElementById("loan").value);
+      const investment = parseFloat(document.getElementById("investment").value);
+
+      // Check if required fields are empty
+      if (!name || !mobile || !birthdate || !gender || isNaN(income) || isNaN(loan) || isNaN(investment)) {
+        alert("Please fill all required fields.");
+        return;
+      }
+
+      let taxableIncome = income;
+
+      // Loan exemption logic
+      const loanExemption = Math.min(0.8 * loan, 0.2 * income);
+      taxableIncome -= loanExemption;
+
+      // Investment exemption logic
+      const investmentExemption = Math.min(investment, 100000);
+      taxableIncome -= investmentExemption;
+
+      let tax = 0;
+
+      // Tax calculation based on gender
+      if (gender === "male") {
+        if (taxableIncome <= 240000) {
+          tax = 0;
+        } else if (taxableIncome <= 600000) {
+          tax = 0.1 * (taxableIncome - 240000);
+        } else {
+          tax = 0.2 * (taxableIncome - 600000) + 36000;
+        }
+      } else if (gender === "female") {
+        if (taxableIncome <= 260000) {
+          tax = 0;
+        } else if (taxableIncome <= 700000) {
+          tax = 0.1 * (taxableIncome - 260000);
+        } else {
+          tax = 0.2 * (taxableIncome - 700000) + 44000;
+        }
+      } else if (gender === "senior") {
+        if (taxableIncome <= 300000) {
+          tax = 0;
+        } else if (taxableIncome <= 700000) {
+          tax = 0.1 * (taxableIncome - 300000);
+        } else {
+          tax = 0.2 * (taxableIncome - 700000) + 40000;
+        }
+      }
+
+      const output = document.getElementById("output");
+      if (taxableIncome <= 0) {
+        output.innerHTML = 
+          `<p>Name: ${name}</p>
+           <p class="taxable">Taxable Income: ₹${taxableIncome.toFixed(2)}</p>
+           <p>Payable Tax: ₹${tax.toFixed(2)}</p>`;
+      } else {
+        output.innerHTML = 
+          `<p>Name: ${name}</p>
+           <p class="nontaxable">Taxable Income: ₹${taxableIncome.toFixed(2)}</p>
+           <p>Payable Tax: ₹${tax.toFixed(2)}</p>`;
+      }
+    });
+  </script>
+
+</body>
+</html>

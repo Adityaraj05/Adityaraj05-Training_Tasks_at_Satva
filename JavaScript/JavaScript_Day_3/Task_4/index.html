@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task_4</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            color: #333 !important; /* Force black color for heading */
+        }
+
+        .storage-section {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        input[type="text"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .delete-btn {
+            background-color: #dc3545;
+        }
+
+        .delete-btn:hover {
+            background-color: #c82333;
+        }
+
+        .task-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .task-item {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+
+        .preferences {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .theme-selector {
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            .task-list {
+                grid-template-columns: 1fr;
+            }
+
+            .preferences {
+                flex-direction: column;
+            }
+        }
+
+        /* Dark theme modifications */
+        body.dark-theme {
+            background-color: #333;
+            color: #fff;
+        }
+
+        .dark-theme .storage-section {
+            background-color: #444;
+            color: #fff;
+        }
+
+        .dark-theme h2 {
+            color: #fff;
+        }
+
+        .dark-theme .task-item {
+            background-color: #555;
+            border-color: #666;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Task Manager</h1>
+        </div>
+
+        <!-- Rest of the HTML remains the same -->
+        <!-- User Preferences (Cookies) -->
+        <div class="storage-section">
+            <h2>User Preferences (Cookies)</h2>
+            <div class="preferences">
+                <select id="themeSelect" class="theme-selector">
+                    <option value="light">Light Theme</option>
+                    <option value="dark">Dark Theme</option>
+                </select>
+                <button onclick="savePreferences()">Save Preferences</button>
+            </div>
+        </div>
+
+        <!-- Persistent Tasks (Local Storage) -->
+        <div class="storage-section">
+            <h2>Persistent Tasks (Local Storage)</h2>
+            <div class="form-group">
+                <input type="text" id="persistentTaskTitle" placeholder="Task Title">
+                <textarea id="persistentTaskDesc" placeholder="Task Description"></textarea>
+                <button onclick="addPersistentTask()">Add Task</button>
+            </div>
+            <div id="persistentTaskList" class="task-list"></div>
+        </div>
+
+        <!-- Session Tasks (Session Storage) -->
+        <div class="storage-section">
+            <h2>Session Tasks (Session Storage)</h2>
+            <div class="form-group">
+                <input type="text" id="sessionTaskTitle" placeholder="Task Title">
+                <textarea id="sessionTaskDesc" placeholder="Task Description"></textarea>
+                <button onclick="addSessionTask()">Add Task</button>
+            </div>
+            <div id="sessionTaskList" class="task-list"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

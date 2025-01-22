@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task_1</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="successPopup" class="popup">Row added successfully!</div>
+
+    <div class="table-container">
+        <table id="mainTable">
+            <thead>
+                <tr>
+                    <th>SR.No</th>
+                    <th>Project Name*</th>
+                    <th>TimeLog Date*</th>
+                    <th>Phase*</th>
+                    <th>Status*</th>
+                    <th>Logged Hours*</th>
+                    <th>Billable Hours*</th>
+                    <th>Notes*</th>
+                    <th>Out of Stock</th>
+                    <th>BC Link</th>
+                    <th>BC Description</th>
+                    
+                </tr>
+            </thead>
+            <tbody id="mainTableBody"></tbody>
+        </table>
+    </div>
+
+    <div class="control-panel">
+        <button class="delete-btn" onclick="deleteLastRows()">Delete Last Row</button>
+        <input type="number" id="rowCount" class="row-input" value="1" min="1">
+        <button class="add-btn" onclick="addRows()">Add Row</button>
+    </div>
+
+    <div class="table-container">
+        <table class="summary-table">
+            <thead>
+                <tr>
+                    <th>Project Name</th>
+                    <th>Time/Date</th>
+                    <th>Phases</th>
+                    <th>Status</th>
+                    <th>Logged Hours</th>
+                    <th>Billable Hours</th>
+                    <th>Notes</th>
+                    <th>Out of Stock</th>
+                    <th>BC Link</th>
+                    <th>BC Description</th>
+                    
+                </tr>
+            </thead>
+            <tbody id="summaryTableBody"></tbody>
+        </table>
+    </div>
+
+    <script src="script.js"></script> 
+</body>
+</html>

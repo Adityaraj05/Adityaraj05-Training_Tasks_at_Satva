@@ -1,0 +1,79 @@
+.output {
+    margin-top: 20px;
+  }
+
+  .tax-Exemptions {
+    margin-top: 15px;
+  }
+
+  p {
+    margin-left: 50px;
+  }
+
+  .notes {
+    display: flex;
+  }
+
+  .notes p {
+    margin-left: 10px;
+    margin-top: 7px;
+  }
+
+  .tax-info table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  .form-row{
+    margin-top: 10px;
+
+  }
+
+  .tax-info th, .tax-info td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: start;
+  }
+
+  .tax-info th {
+    background-color: #ccc;
+  }
+
+  .taxable {
+    background-color: green;
+    color: white;
+  }
+
+  .nontaxable {
+    background-color: navy;
+    color: white;
+  }
+
+  @media (max-width: 600px) {
+    .tax-info table, .tax-info thead, .tax-info tbody, .tax-info th, .tax-info td, .tax-info tr {
+      display: block;
+    }
+
+    .tax-info thead {
+      display: none;
+    }
+
+    .tax-info tr {
+      margin-bottom: 15px;
+    }
+
+    .tax-info td {
+      display: flex;
+      justify-content: space-between;
+      padding-left: 50%;
+      text-align: left;
+      position: relative;
+    }
+
+    .tax-info td:before {
+      content: attr(data-label);
+      position: absolute;
+      left: 10px;
+      font-weight: bold;
+    }
+  }
