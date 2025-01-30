@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task_1</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f2f2f2;
+        }
+        
+        .card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        
+        .card h2 {
+            text-align: center;
+            margin-top: 0;
+        }
+        
+        .card select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        
+        .card div {
+            margin-bottom: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Select Location</h2>
+        <div>
+            <label for="country-select">Select Country:</label>
+            <select id="country-select">
+                <option value="" disabled selected>Please select a country</option>
+            </select>
+        </div>
+        <div>
+            <label for="state-select">Select State:</label>
+            <select id="state-select" disabled>
+                <option value="">Please select a country first</option>
+            </select>
+        </div>
+        <div>
+            <label for="district-select">Select District:</label>
+            <select id="district-select" disabled>
+                <option value="">Please select a state first</option>
+            </select>
+        </div>
+    </div>
+    
+    <script>
+        function populateDropdowns() {
+            fetch('countries.json')
+                .then(response => response.json())
+                .then(data => {
+                    const countrySelect = document.getElementById('country-select');
+                    countrySelect.innerHTML = '<option value="" disabled selected>Please select a country</option>';
+                    data.forEach(country => {
+                        const option = document.createElement('option');
+                        option.value = country.code;
+                        option.text = country.name;
+                        countrySelect.add(option);
+                    });
+                    
+                    // Remove previous event listeners to prevent multiple bindings
+                    const newCountrySelect = countrySelect.cloneNode(true);
+                    countrySelect.parentNode.replaceChild(newCountrySelect, countrySelect);
+                    
+                    newCountrySelect.addEventListener('change', () => {
+                        const stateSelect = document.getElementById('state-select');
+                        const districtSelect = document.getElementById('district-select');
+                        
+                        // Reset state and district dropdowns completely
+                        stateSelect.innerHTML = '<option value="">Please select a state</option>';
+                        stateSelect.disabled = true;
+                        
+                        districtSelect.innerHTML = '<option value="">Please select a district</option>';
+                        districtSelect.disabled = true;
+                        
+                        populateStates(newCountrySelect.value);
+                    });
+                });
+        }
+        
+        function populateStates(countryCode) {
+            const stateSelect = document.getElementById('state-select');
+            stateSelect.disabled = false;
+            stateSelect.innerHTML = '<option value="">Please select a state</option>';
+            
+            fetch(`states-${countryCode}.json`)
+                .then(response => response.json())
+                .then(data => {
+                    // Remove previous event listeners
+                    const newStateSelect = stateSelect.cloneNode(true);
+                    stateSelect.parentNode.replaceChild(newStateSelect, stateSelect);
+                    
+                    data.forEach(state => {
+                        const option = document.createElement('option');
+                        option.value = state.code;
+                        option.text = state.name;
+                        newStateSelect.add(option);
+                    });
+                    
+                    newStateSelect.addEventListener('change', () => {
+                        const districtSelect = document.getElementById('district-select');
+                        
+                        // Reset district dropdown completely
+                        districtSelect.innerHTML = '<option value="">Please select a district</option>';
+                        districtSelect.disabled = true;
+                        
+                        populateDistricts(newStateSelect.value);
+                    });
+                });
+        }
+        
+        function populateDistricts(stateCode) {
+            const districtSelect = document.getElementById('district-select');
+            districtSelect.disabled = false;
+            districtSelect.innerHTML = '<option value="">Please select a district</option>';
+            
+            fetch(`districts-${stateCode}.json`)
+                .then(response => response.json())
+                .then(data => {
+                    data.forEach(district => {
+                        const option = document.createElement('option');
+                        option.value = district.code;
+                        option.text = district.name;
+                        districtSelect.add(option);
+                    });
+                });
+        }
+        
+        populateDropdowns();
+    </script>
+</body>
+</html>

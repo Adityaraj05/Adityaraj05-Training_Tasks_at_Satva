@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task_3</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./task3.css">
+</head>
+
+<body>
+    <div id="spinner-container" style="display: none;">
+        <div id="spinner" class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <div class="request col-md-8 col-12 mx-auto border p-4">
+
+            <h2 class="text-primary text-center">Dynamic Caller</h2>
+            <div id="spinner" class="spinner-border text-primary" role="status" style="display: none;">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+
+            <form class="w-100">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="">
+                            <label for="url" class="form-label"><b>URL</b></label>
+                            <input type="url"
+                                pattern="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)"
+                                class="form-control" id="url" name="url" placeholder="Enter a URL"
+                                title="Please Enter a valid URL" required>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mt-3 mt-md-0">
+                        <div class="">
+                            <label for="method" class="form-label"><b>Method</b></label>
+                            <select name="method" id="method" class="form-control" required>
+                                <option value="" disabled selected>Choose Method</option>
+                                <option value="GET">GET</option>
+                                <option value="POST">POST</option>
+                                <option value="PATCH">PATCH</option>
+                                <option value="PUT">PUT</option>
+                                <option value="DELETE">DELETE</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div id="box">
+                        <div class="col-md-12 mt-3">
+                            <div>
+                                <label for="body" class="form-label"><b>Body</b></label>
+                                <textarea name="body" id="body" class="form-control" placeholder='{"name":"abcd","age":"20"}' rows="5"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 mt-3">
+                            <div>
+                                <label for="header" class="form-label"><b>Header</b></label>
+                                <textarea name="header" id="header" class="form-control" rows="2"
+                                    placeholder="Enter Headers (JSON format)"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mt-4">
+                        <button type="submit" class="btn btn-primary">
+                            Make a Request
+                        </button>
+                    </div>
+
+
+                </div>
+            </form>
+        </div>
+
+        <div class="response border p-4 mt-4 col-md-8 mx-auto">
+            <h3 class="text-dark text-left">Response:</h3>
+            <div id="response"></div>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./task3.js"></script>
+</body>
+
+</html>

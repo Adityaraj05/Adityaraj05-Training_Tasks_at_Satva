@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Intercompany Transaction</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <style>
+      .transaction-list {
+        /* min-height: 0px; */
+        border: 1px dashed #ccc;
+        padding: 15px;
+        background-color: #f9f9f9;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        transition: background 0.3s, color 0.3s;
+      }
+
+      .icon-btn {
+        font-size: 15px;
+      }
+
+      .loader {
+        border: 8px solid #f3f3f3;
+        border-top: 8px solid #3498db;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        animation: spin 2s linear infinite;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      .loader-container {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.8);
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+      }
+
+      .transaction {
+        cursor:grab;
+        margin-bottom: 10px;
+        width: 100%;
+     
+        min-height: 90px;
+        max-height:100%;
+        margin-top: 6px;
+      }
+
+      .excluded {
+        opacity: 1;
+      }
+
+      .drag-over {
+        background-color: #e9ecef;
+      }
+
+      .nav-link.active {
+        color: #0d6efd;
+        font-weight: bold;
+        border-bottom: 2px solid #0d6efd;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="loader-container" id="loaderContainer">
+      <div class="loader"></div>
+    </div>
+    <div class="container mt-5">
+      <h2 class="text-center" style="
+      color: blue;
+  "><b>Intercompany Transaction</b></h2>
+
+      <div class="d-flex justify-content-between" style="
+      color:skyblue;
+  ">
+        <h4>Company 1</h4>
+        <h4>Company 2</h4>
+      </div>
+      <hr />
+
+      <div class="controls d-flex gap-3 flex-wrap">
+        <a href="#" data-section="unreconciled-section" class="nav-link active"
+          >Unreconciled</a
+        >
+        <a href="#" data-section="reconciled-section" class="nav-link"
+          >Reconciled</a
+        >
+        <a href="#" data-section="exclude-section" class="nav-link">Exclude</a>
+
+        <div class="ms-auto">
+          <button class="btn btn-primary action-btn" id="reconcileBtn">
+            <b>Reconciliation</b>
+          </button>
+          <button class="btn btn-warning action-btn d-none" id="unreconcileBtn">
+            <b>Unreconciliation</b>
+          </button>
+          <button class="btn btn-danger action-btn d-none" id="excludeBtn">
+            <b>Exclude</b>
+          </button>
+          <button class="btn btn-danger" onclick="handleLogout()">
+            <b>Logout</b>
+          </button>
+        </div>
+      </div>
+
+      <div class="row mt-3 section" id="unreconciled-section">
+        <div id="company1" class="transaction-list col-md-4"></div>
+        <div id="reconciled" class="transaction-list col-md-4"></div>
+        <div id="company2" class="transaction-list col-md-4"></div>
+      </div>
+
+      <div
+        class="row mt-3 section"
+        id="reconciled-section"
+        style="display: none"
+      >
+        <div id="reconciled-company1" class="transaction-list col-md-4"></div>
+        <div id="reconciled-div" class="transaction-list col-md-4"></div>
+        <div id="reconciled-company2" class="transaction-list col-md-4"></div>
+      </div>
+
+      <div class="row mt-3 section" id="exclude-section" style="display: none">
+        <div class="col-12 exclude-actions d-flex">
+          <div class="ms-auto d-flex gap-2 mb-2">
+            <!-- <button class="btn btn-danger" id="excludeSelectedBtn">Exclude</button> -->
+            <button class="btn btn-secondary" id="selectAllBtn">
+              Select All
+            </button>
+            <button class="btn btn-secondary" id="deselectAllBtn">
+              Deselect All
+            </button>
+          </div>
+        </div>
+        <div id="exclude-company1" class="transaction-list col-md-4"></div>
+        <div id="exclude-div" class="transaction-list col-md-4"></div>
+        <div id="exclude-company2" class="transaction-list col-md-4"></div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script>
+    
+  </body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="loader-container" id="loaderContainer">
+        <div class="loader"></div>
+    </div>
+    <div class="login-card">
+        <h4 class="text-center mb-4">Login</h4>
+        <form id="loginForm" novalidate>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                <div class="invalid-feedback">
+                    Please enter a valid email address.
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Enter your password" required>
+                <div class="invalid-feedback">
+                    Password must be at least 8 characters long and include a number and a special character.
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Login</button>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const API_URL = "http://trainingsampleapi.satva.solutions/api/auth/login";
+   
+        const loaderContainer = document.getElementById('loaderContainer');
+        const showLoader = () => {
+            loaderContainer.style.display = 'flex';
+        };
+        const hideLoader = () => {
+            loaderContainer.style.display = 'none';
+        };
+        const validateField = (input, pattern, errorMessage) => {
+            if (!pattern.test(input.value.trim())) {
+                input.classList.add('is-invalid');
+                input.nextElementSibling.textContent = errorMessage;
+                return false;
+            } else {
+                input.classList.remove('is-invalid');
+                input.classList.add('is-valid');
+                return true;
+            }
+        };
+
+        document.getElementById('loginForm').addEventListener('submit', async function (event) {
+            event.preventDefault();
+
+            const emailInput = document.getElementById('email');
+            const passwordInput = document.getElementById('password');
+
+            const isEmailValid = validateField(emailInput,/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,"Please enter a valid email address.");
+
+            const isPasswordValid = validateField(passwordInput,/^(?=.*\d)(?=.*[!@#$%^&*])[a-zA-Z\d!@#$%^&*]{8,}$/,"Password must be at least 8 characters long and include a number and a special character.");
+
+            if (isEmailValid && isPasswordValid) {
+                showLoader();
+                try {
+                    const response = await fetch(API_URL, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            email: emailInput.value.trim(),
+                            password: passwordInput.value.trim(),
+                        }),
+                    });
+
+                    if (response.ok) {
+                        const data = await response.json();
+                        localStorage.setItem('jwtToken', data.token);
+                        // for Refrencing purpose
+                        window.location.href = 'transaction.html';
+                    } else {
+                        alert('Login failed! Please check your credentials.');
+                    }
+                } catch (error) {
+                    console.error('Error during login:', error);
+                    alert('An error occurred. Please try again later.');
+                } finally {
+                    hideLoader();
+                }
+            }
+        });
+        
+    </script>
+</body>
+
+</html>

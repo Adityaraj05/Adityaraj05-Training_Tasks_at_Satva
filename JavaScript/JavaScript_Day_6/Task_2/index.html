@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task_2</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/signature_pad@4.0.0/dist/signature_pad.umd.min.js"></script>
+    <style>
+        .signature-pad {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            height: 100px;
+            width: 250px;
+        }
+    </style>
+</head>
+
+<body class="bg-secondary">
+    <div class="container col-lg-8 col-md-10 col-sm-12 bg-light p-5">
+
+        <div class="mt-2">
+            <h3 class="text-center">Certificate of Foreign Status of Beneficial Owner for United States Tax Withholding
+                and Reporting (Individuals)</h3>
+            <p class="text-center fs-5">Department of the Treasury Internal Revenue Service</p>
+        </div>
+        <hr>
+
+        <p>For use by individuals. Entities must use Form W-8BEN-E.</p>
+        <p>Go to www.irs.gov/FormW8BEN for instructions and the latest information.</p>
+        <p>Give this form to the withholding agent or payer. Do not send to the IRS.</p>
+
+        <div class="mt-5">
+            <b>Do NOT use this form if:</b>
+            <ul>
+                <li>You are NOT an individual</li>
+                <li>You are a U.S. citizen or other U.S. person, including resident alien individual</li>
+                <li>You are a beneficial owner claiming that income is effectively connected with the conduct of trade
+                    or business with the U.S. (other than personal services)</li>
+                <li>You are a beneficial owner who is receiving compensation for personal services performed in the
+                    United States</li>
+                <li>You are a person acting as an intermediary</li>
+            </ul>
+        </div>
+
+        <hr class="mt-5">
+
+        <p><b>Note:</b> If you are resident in a FATCA partner jurisdiction (i.e., a Model 1 IGA jurisdiction with
+            reciprocity), certain tax account information may be provided to your jurisdiction of residence.</p>
+
+        <div class="mt-5">
+            <h4>Part I: Identification of Beneficial Owner</h4>
+            <small>See instructions</small>
+        </div>
+
+        <hr>
+
+        <form id="certificateForm" class="needs-validation" novalidate>
+            <div class="my-3 row">
+                <div class="col-12 col-md-4">
+                    <label for="beneficialOwnerName">1. Name of individual who is the beneficial owner</label>
+                </div>
+
+                <div class="col-12 col-md-8">
+                    <input type="text" class="form-control" id="beneficialOwnerName" name="beneficialOwnerName"
+                        required>
+                    <small class="text-danger" id="beneficialOwnerNameError"></small>
+                </div>
+            </div>
+
+            <div class="my-3 row">
+                <div class="col-12 col-md-4">
+                    <label for="countryOfCitizenship">2. Country of citizenship</label>
+                </div>
+
+                <div class="col-12 col-md-8">
+                    <input type="text" class="form-control" id="countryOfCitizenship" name="countryOfCitizenship"
+                        required>
+                    <small class="text-danger" id="countryOfCitizenshipError"></small>
+                </div>
+            </div>
+
+            <div class="my-3 row">
+                <div class="col-12 col-md-4">
+                    <label for="permanentAddress">3. Permanent residence address street, apt. or suite no., or rural
+                        route. Do not use a P.O. box or in-care-of address.</label>
+                </div>
+
+                <div class="col-12 col-md-8">
+                    <div>
+                        <input type="text" class="form-control" id="permanentAddress" name="permanentAddress" required>
+                        <small>Street Address</small>
+                        <small class="text-danger" id="permanentAddressError"></small>
+                    </div>
+
+                    <div class="mt-3">
+                        <input type="text" class="form-control" id="permanentAddress2" name="permanentAddress2">
+                        <small>Street Address Line2</small>
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" id="city" name="city" required>
+                            <small>City</small>
+                            <small class="text-danger" id="cityError"></small>
+                        </div>
+
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" id="stateProvince" name="stateProvince" required>
+                            <small>State/Province</small>
+                            <small class="text-danger" id="stateProvinceError"></small>
+                        </div>
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" id="postalCode" name="postalCode" required>
+                            <small>Postal / Zip Code</small>
+                            <small class="text-danger" id="postalCodeError"></small>
+                        </div>
+
+                        <div class="col-md-6">
+                            <select name="country" class="form-control" id="countrySelect" required>
+                                <option value="" disabled selected>Please Select</option>
+                                <option value="India">India</option>
+                            </select>
+                            <small>Country</small>
+                            <small class="text-danger" id="countrySelectError"></small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="my-3 row">
+                <div class="col-12 col-md-4">
+                    <label for="mailingAddress">4. Mailing address (if different from above)</label>
+                </div>
+
+                <div class="col-12 col-md-8">
+                    <div>
+                        <input type="text" class="form-control" id="mailingAddress" name="mailingAddress">
+                        <small>Street Address</small>
+                    </div>
+
+                    <div class="mt-3">
+                        <input type="text" class="form-control" id="mailingAddress2" name="mailingAddress2">
+                        <small>Street Address Line 2</small>
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col-md-6">
+                            <input type="text" name="mailingCity" id="mailingCity" class="form-control mt-2">
+                            <small>City</small>
+                        </div>
+
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" id="mailingStateProvince"
+                                name="mailingStateProvince">
+                            <small>State/Province</small>
+                        </div>
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" id="mailingPostalCode" name="mailingPostalCode">
+                            <small>Zip/ Postal Code</small>
+                        </div>
+
+                        <div class="col-md-6">
+                            <select name="mailingCountry" class="form-control" id="mailingStateSelect">
+                                <option value="" disabled selected>Please Select</option>
+                                <option value="Gujarat">Gujarat</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="my-3 row">
+                <div class="col-12 col-md-4">
+                    <label for="foreignTaxId">6. Foreign tax identifying number (see instructions)</label>
+                </div>
+
+                <div class="col-12 col-md-8">
+                    <input type="text" class="form-control" id="foreignTaxId" name="foreignTaxId">
+                    <small class="text-danger" id="foreignTaxIdError"></small>
+                </div>
+            </div>
+
+            <div class="my-3 row">
+                <div class="col-12 col-md-4">
+                    <label for="referenceNumber">7. Reference number(s) (see instructions)</label>
+                </div>
+
+                <div class="col-12 col-md-8">
+                    <input type="text" class="form-control" id="referenceNumber" name="referenceNumber">
+                    <small class="text-danger" id="referenceNumberError"></small>
+                </div>
+            </div>
+
+            <div class="my-3 row">
+                <div class="col-12 col-md-4">
+                    <label for="dateOfBirth">8. Date of birth (MM-DD-YYYY) (see instructions)</label>
+                </div>
+
+                <div class="col-12 col-md-8">
+                    <input type="date" class="form-control" id="dateOfBirth" name="dateOfBirth" required>
+                    <small>Date</small>
+                    <small class="text-danger" id="dateOfBirthError"></small>
+                </div>
+            </div>
+
+            <div class="my-5">
+                <h4>Part II: Claim of Tax Treaty Benefits</h4>
+                <small>See instructions (for chapter 3 purposes only)</small>
+            </div>
+
+            <hr>
+            <p>9. I certify that the beneficial owner is a resident of <input type="text"
+                    class="form-control d-inline w-50" id="treatyCountry" name="treatyCountry"
+                    style="display: inline-block; width: auto;"> within the meaning of the income tax treaty between the
+                United States and that country.</p>
+
+            <p>10. Special rates and conditions (if applicable-see instructions): The beneficial owner is claiming the
+                provisions of Article and paragraph
+                <input type="text" class="form-control" id="articleParagraph" name="articleParagraph"
+                    style="display: inline-block; width: auto;">of the treaty identified on line 9 above to claim a
+                <input type="text" class="form-control" id="typeLabel" name="typeLabel"
+                    style="display: inline-block; width: auto;">
+                % rate of withholding on (specify type of income):
+                <input type="text" class="form-control" id="withholdingRate" name="withholdingRate"
+                    style="display: inline-block; width: auto;">
+                Type a label
+                <input type="text" class="form-control" id="incomeType" name="incomeType"
+                    style="display: inline-block; width: auto;">.
+                Explain the additional conditions in the Article and paragraph the beneficial owner meets to be eligible
+                for the rate of withholding:
+                <input type="text" class="form-control" id="additionalConditions" name="additionalConditions"
+                    style="display: inline-block; width: auto;">.
+            </p>
+
+            <div class="my-5">
+                <h4>Part III: Certification</h4>
+            </div>
+
+            <hr>
+
+            <div class="mt-5">
+                <p>Under penalties of perjury, I declare that I have examined the information on this form and to the
+                    best of my knowledge and belief it is true, correct, and complete. I further certify under penalties
+                    of perjury that:</p>
+
+                <ul>
+                    <li>I am the individual that is the beneficial owner (or am authorized to sign for the individual
+                        that is the beneficial owner) of all the income to which this form relates or am using this form
+                        to document myself for chapter 4 purposes,</li>
+
+                    <li>The person named on line 1 of this form is not a U.S. person,</li>
+                    <li>The income to which this form relates is:</li>
+                    <li>
+                        <ul>
+                            <li>(a) not effectively connected with the conduct of a trade or business in the United
+                                States,</li>
+                            <li>(b) effectively connected but is not subject to tax under an applicable income tax
+                                treaty,</li>
+                            <li>or (c) the partner’s share of a partnership's effectively connected income,</li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        The person named on line 1 of this form is a resident of the treaty country listed on line 9 of
+                        the form (if any) within the meaning of the income tax treaty between the United States and that
+                        country, and
+                    </li>
+
+                    <li>For broker transactions or barter exchanges, the beneficial owner is an exempt foreign person as
+                        defined in the instructions.</li>
+                </ul>
+
+                <p>Furthermore, I authorize this form to be provided to any withholding agent that has control, receipt,
+                    or custody of the income of which I am the beneficial owner or any withholding agent that can
+                    disburse or make payments of the income of which I am the beneficial owner. I agree that I will
+                    submit a new form within 30 days if any certification made on this form becomes incorrect.</p>
+            </div>
+            <div class="my-3 row">
+                <div class="col-12 col-md-4">
+                    <label for="signature">Signature of beneficial owner (or individual authorized to sign for
+                        beneficial owner)</label>
+                </div>
+
+                <div class="col-12 col-md-8">
+                    <canvas id="signature-pad" class="signature-pad"></canvas>
+                    <small class="text-danger" id="signatureError"></small>
+                </div>
+            </div>
+
+            <div class="my-3 row">
+                <div class="col-12 col-md-4">
+                    <label for="signatureDate">Date (MM-DD-YYYY)</label>
+                </div>
+
+                <div class="col-12 col-md-8">
+                    <input type="date" class="form-control" id="signatureDate" name="signatureDate" required>
+                    <small>Date</small>
+                    <small class="text-danger" id="signatureDateError"></small>
+                </div>
+            </div>
+
+            <div class="my-3 row">
+                <div class="col-12 col-md-4">
+                    <label for="signerName">Print name of signer</label>
+                </div>
+
+                <div class="col-12 col-md-8">
+                    <input type="text" class="form-control" id="signerName" name="signerName" required>
+                    <small class="text-danger" id="signerNameError"></small>
+                </div>
+            </div>
+
+            <div class="my-3 row">
+                <div class="col-12 col-md-4">
+                    <label for="capacity">Capacity in which acting (if form is not signed by beneficial owner)</label>
+                </div>
+
+                <div class="col-12 col-md-8">
+                    <input type="text" class="form-control" id="capacity" name="capacity">
+                </div>
+            </div>
+
+            <hr>
+            <div class="d-flex justify-content-center gap-2">
+                <button type="button" class="btn btn-secondary px-5" id="preview-btn">Preview PDF</button>
+                <button type="submit" class="btn btn-success px-5" id="submit-btn">Submit</button>
+            </div>
+        </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="script.js"></script>
+
+    
+</body>
+
+</html>
