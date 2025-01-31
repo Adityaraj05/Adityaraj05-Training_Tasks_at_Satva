@@ -525,29 +525,16 @@ function handleReconciliation() {
 }
 
 
-document.addEventListener("click", (event) => {
-  const toggleBtn = event.target.closest(".toggle-lines");
-  if (!toggleBtn) return;
+document.addEventListener("click", (e) => {
+  if (e.target && e.target.closest('.transaction')) {
+    const transactionId = e.target.closest('.transaction').getAttribute('data-id');
 
-  const transactionId = toggleBtn.dataset.id;
-  const linesElement = document.getElementById(`lines-${transactionId}`);
-
-  if (!linesElement) {
-    console.warn(`Element with ID 'lines-${transactionId}' not found.`);
-    return;
-  }
-  event.stopPropagation();
-  if (
-    linesElement.style.display === "none" ||
-    linesElement.classList.contains("collapse")
-  ) {
-    linesElement.style.display = "block";
-    linesElement.classList.remove("collapse");
-    console.log(`Transaction ID: ${transactionId} Expanded`);
-  } else {
-    linesElement.style.display = "none";
-    linesElement.classList.add("collapse");
-    console.log(`Transaction ID: ${transactionId} Collapsed`);
+    if (e.target.classList.contains('toggle-lines') || e.target.closest('.toggle-lines')) {
+      const transactionElement = e.target.closest('.transaction');
+            const collapseDiv = transactionElement.querySelector('.lines');
+      
+      collapseDiv.classList.toggle('collapse');
+    }
   }
 });
 
