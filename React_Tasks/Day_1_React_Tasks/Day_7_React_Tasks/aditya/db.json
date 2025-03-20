@@ -1,0 +1,62 @@
+{
+  "users": [
+    {
+      "id": "bff8",
+      "email": "rajdeep44@gmail.com",
+      "password": "$2b$10$gQnoYNBnDBPqTwbs//tWOuadcm0aBNZnk7IyAmRB67geq8ZWkg8O0O"
+    },
+    {
+      "id": "ec83",
+      "email": "adityaraj@satvasolutions.com",
+      "password": "$2b$10$Q.bw64vCq8fXPNX1b4ALZ.VH0vH0ov/1ohMf4RzO9s1RpFrYTKzdK",
+      "token": "eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImFkaXR5YXJhakBzYXR2YXNvbHV0aW9ucy5jb20iLCJpZCI6ImVjODMiLCJleHAiOjE3NDA2NjczMjF9.mzHm76ttxAPDXELzBpEkNP3yMlg32zaYSvShNDGeKmI"
+    },
+    {
+      "id": "2ea0",
+      "email": "adityaraj1@satvasolutions.com",
+      "password": "$2b$10$NmO3NULCgTxb370bZ9trtOixoTaEFrY5NUMK4PDzpAQODAqAihMK2"
+    }
+  ],
+  "jobs": [
+    {
+      "id": "a2104e66-a63f-4d77-89b5-b852a3147e14",
+      "title": "Cumque et consequatu",
+      "description": "Et non suscipit sed ",
+      "salary": 0,
+      "location": "Omnis in doloribus v",
+      "type": "Full-time",
+      "addedBy": "rajdeep43@gmail.com",
+      "createdById": "0754"
+    },
+    {
+      "id": "e69f67ed-86e4-4550-be41-de566171095e",
+      "title": "Suscipit qui deserun",
+      "description": "Officia illum non a",
+      "salary": 0,
+      "location": "Incidunt amet inci",
+      "type": "Part-time",
+      "addedBy": "rajdeep43@gmail.com",
+      "createdById": "0754"
+    },
+    {
+      "id": "09fe7218-3243-4fa0-bdbe-368db341d3f7",
+      "title": "Software Developer      ",
+      "description": "Healthy",
+      "salary": 1443243,
+      "location": "kerala",
+      "type": "Full-time",
+      "addedBy": "adityaraj@satvasolutions.com",
+      "createdById": "ec83"
+    },
+    {
+      "id": "c38f8b5e-3a26-4c73-8892-e5149719d5a5",
+      "title": "Mern-Developer",
+      "description": "React.js",
+      "salary": 1993230,
+      "location": "kerala",
+      "type": "Part-time",
+      "addedBy": "adityaraj1@satvasolutions.com",
+      "createdById": "2ea0"
+    }
+  ]
+}
