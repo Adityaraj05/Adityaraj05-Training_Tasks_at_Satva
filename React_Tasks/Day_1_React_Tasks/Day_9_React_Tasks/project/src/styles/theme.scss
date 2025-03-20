@@ -1,0 +1,34 @@
+@import './variables.scss';
+
+:root {
+  --bg-primary: #{$light-bg-primary};
+  --bg-secondary: #{$light-bg-secondary};
+  --text-primary: #{$light-text-primary};
+  --text-secondary: #{$light-text-secondary};
+  --border-color: #{$light-border};
+  --primary-color: #{$light-primary};
+  --success-color: #{$light-success};
+  --warning-color: #{$light-warning};
+  --error-color: #{$light-error};
+}
+
+[data-theme='dark'] {
+  --bg-primary: #{$dark-bg-primary};
+  --bg-secondary: #{$dark-bg-secondary};
+  --text-primary: #{$dark-text-primary};
+  --text-secondary: #{$dark-text-secondary};
+  --border-color: #{$dark-border};
+  --primary-color: #{$dark-primary};
+  --success-color: #{$dark-success};
+  --warning-color: #{$dark-warning};
+  --error-color: #{$dark-error};
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color #{$transition-speed} ease, color #{$transition-speed} ease;
+}
