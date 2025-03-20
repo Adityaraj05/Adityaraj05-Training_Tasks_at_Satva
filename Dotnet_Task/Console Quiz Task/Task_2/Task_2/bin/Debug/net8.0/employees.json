@@ -1,0 +1,32 @@
+[
+  {
+    "Id": 1,
+    "FirstName": "Aditya ",
+    "LastName": "Raj",
+    "Gender": "M",
+    "Email": "adityarajavi@gmail.com",
+    "Phone": "8235220670",
+    "Designation": 1,
+    "Salary": 45000
+  },
+  {
+    "Id": 2,
+    "FirstName": "Harsh",
+    "LastName": "Singh",
+    "Gender": "M",
+    "Email": "harsh@gmail.com",
+    "Phone": "8822334466",
+    "Designation": 0,
+    "Salary": 45000
+  },
+  {
+    "Id": 3,
+    "FirstName": "suajala",
+    "LastName": "rajveer",
+    "Gender": "M",
+    "Email": "sujal@gmail.com",
+    "Phone": "8822335577",
+    "Designation": 0,
+    "Salary": 45000
+  }
+]

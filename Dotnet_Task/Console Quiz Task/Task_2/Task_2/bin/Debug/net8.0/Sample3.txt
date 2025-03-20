@@ -1,0 +1,4 @@
+Line 1: This is the first line.
+Line 2: Here comes the second line.
+Line 3: Finally, the third line.
+This is the appended text.
