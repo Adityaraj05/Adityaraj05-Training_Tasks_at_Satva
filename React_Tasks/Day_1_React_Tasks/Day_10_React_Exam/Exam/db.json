@@ -1,0 +1,256 @@
+{
+    "groups": [
+      {
+        "groupId": 1,
+        "groupName": "Alpha Group",
+        "currencyCode": "USD",
+        "currencyName": "United States Dollar",
+        "financialYear": "2024-2025",
+        "groupMappedCompaniesReqModel": [
+          {
+            "erpCompanyId": "C001",
+            "erpCompanyName": "Company A",
+            "erpCompanyCurrencyCode": "USD"
+          }
+        ]
+      },
+      {
+        "groupId": 2,
+        "groupName": "Beta Group",
+        "currencyCode": "EUR",
+        "currencyName": "Euro",
+        "financialYear": "2023-2024",
+        "groupMappedCompaniesReqModel": [
+          {
+            "erpCompanyId": "C002",
+            "erpCompanyName": "Company B",
+            "erpCompanyCurrencyCode": "EUR"
+          }
+        ]
+      },
+      {
+        "groupId": 3,
+        "groupName": "Gamma Group",
+        "currencyCode": "GBP",
+        "currencyName": "British Pound",
+        "financialYear": "2022-2023",
+        "groupMappedCompaniesReqModel": [
+          {
+            "erpCompanyId": "C003",
+            "erpCompanyName": "Company C",
+            "erpCompanyCurrencyCode": "GBP"
+          }
+        ]
+      },
+      {
+        "groupId": 4,
+        "groupName": "Delta Group",
+        "currencyCode": "INR",
+        "currencyName": "Indian Rupee",
+        "financialYear": "2024-2025",
+        "groupMappedCompaniesReqModel": [
+          {
+            "erpCompanyId": "C004",
+            "erpCompanyName": "Company D",
+            "erpCompanyCurrencyCode": "INR"
+          }
+        ]
+      },
+      {
+        "groupId": 5,
+        "groupName": "Epsilon Group",
+        "currencyCode": "AUD",
+        "currencyName": "Australian Dollar",
+        "financialYear": "2023-2024",
+        "groupMappedCompaniesReqModel": [
+          {
+            "erpCompanyId": "C005",
+            "erpCompanyName": "Company E",
+            "erpCompanyCurrencyCode": "AUD"
+          }
+        ]
+      },
+      {
+        "groupId": 6,
+        "groupName": "Zeta Group",
+        "currencyCode": "CAD",
+        "currencyName": "Canadian Dollar",
+        "financialYear": "2022-2023",
+        "groupMappedCompaniesReqModel": [
+          {
+            "erpCompanyId": "C006",
+            "erpCompanyName": "Company F",
+            "erpCompanyCurrencyCode": "CAD"
+          }
+        ]
+      },
+      {
+        "groupId": 7,
+        "groupName": "Eta Group",
+        "currencyCode": "JPY",
+        "currencyName": "Japanese Yen",
+        "financialYear": "2024-2025",
+        "groupMappedCompaniesReqModel": [
+          {
+            "erpCompanyId": "C007",
+            "erpCompanyName": "Company G",
+            "erpCompanyCurrencyCode": "JPY"
+          }
+        ]
+      },
+      {
+        "groupId": 8,
+        "groupName": "Theta Group",
+        "currencyCode": "CNY",
+        "currencyName": "Chinese Yuan",
+        "financialYear": "2023-2024",
+        "groupMappedCompaniesReqModel": [
+          {
+            "erpCompanyId": "C008",
+            "erpCompanyName": "Company H",
+            "erpCompanyCurrencyCode": "CNY"
+          }
+        ]
+      },
+      {
+        "groupId": 9,
+        "groupName": "Iota Group",
+        "currencyCode": "CHF",
+        "currencyName": "Swiss Franc",
+        "financialYear": "2022-2023",
+        "groupMappedCompaniesReqModel": [
+          {
+            "erpCompanyId": "C009",
+            "erpCompanyName": "Company I",
+            "erpCompanyCurrencyCode": "CHF"
+          }
+        ]
+      },
+      {
+        "groupId": 10,
+        "groupName": "Kappa Group",
+        "currencyCode": "SEK",
+        "currencyName": "Swedish Krona",
+        "financialYear": "2024-2025",
+        "groupMappedCompaniesReqModel": [
+          {
+            "erpCompanyId": "C010",
+            "erpCompanyName": "Company J",
+            "erpCompanyCurrencyCode": "SEK"
+          }
+        ]
+      },
+      {
+        "groupId": 11,
+        "groupName": "Lambda Group",
+        "currencyCode": "NZD",
+        "currencyName": "New Zealand Dollar",
+        "financialYear": "2023-2024",
+        "groupMappedCompaniesReqModel": [
+          {
+            "erpCompanyId": "C011",
+            "erpCompanyName": "Company K",
+            "erpCompanyCurrencyCode": "NZD"
+          }
+        ]
+      },
+      {
+        "groupId": 12,
+        "groupName": "Mu Group",
+        "currencyCode": "SGD",
+        "currencyName": "Singapore Dollar",
+        "financialYear": "2022-2023",
+        "groupMappedCompaniesReqModel": [
+          {
+            "erpCompanyId": "C012",
+            "erpCompanyName": "Company L",
+            "erpCompanyCurrencyCode": "SGD"
+          }
+        ]
+      },
+      {
+        "groupId": 13,
+        "groupName": "Nu Group",
+        "currencyCode": "HKD",
+        "currencyName": "Hong Kong Dollar",
+        "financialYear": "2024-2025",
+        "groupMappedCompaniesReqModel": [
+          {
+            "erpCompanyId": "C013",
+            "erpCompanyName": "Company M",
+            "erpCompanyCurrencyCode": "HKD"
+          }
+        ]
+      },
+      {
+        "groupId": 14,
+        "groupName": "Xi Group",
+        "currencyCode": "NOK",
+        "currencyName": "Norwegian Krone",
+        "financialYear": "2023-2024",
+        "groupMappedCompaniesReqModel": [
+          {
+            "erpCompanyId": "C014",
+            "erpCompanyName": "Company N",
+            "erpCompanyCurrencyCode": "NOK"
+          }
+        ]
+      },
+      {
+        "groupId": 15,
+        "groupName": "Omicron Group",
+        "currencyCode": "KRW",
+        "currencyName": "South Korean Won",
+        "financialYear": "2022-2023",
+        "groupMappedCompaniesReqModel": [
+          {
+            "erpCompanyId": "C015",
+            "erpCompanyName": "Company O",
+            "erpCompanyCurrencyCode": "KRW"
+          }
+        ]
+      },
+      {
+        "groupId": 16,
+        "groupName": "Pi Group",
+        "currencyCode": "MXN",
+        "currencyName": "Mexican Peso",
+        "financialYear": "2024-2025",
+        "groupMappedCompaniesReqModel": [
+          {
+            "erpCompanyId": "C016",
+            "erpCompanyName": "Company P",
+            "erpCompanyCurrencyCode": "MXN"
+          }
+        ]
+      },
+      {
+        "groupId": 17,
+        "groupName": "Rho Group",
+        "currencyCode": "BRL",
+        "currencyName": "Brazilian Real",
+        "financialYear": "2023-2024",
+        "groupMappedCompaniesReqModel": [
+          {
+            "erpCompanyId": "C017",
+            "erpCompanyName": "Company Q",
+            "erpCompanyCurrencyCode": "BRL"
+          }
+        ]
+      },
+      {
+        "groupId": 18,
+        "groupName": "Sigma Group",
+        "currencyCode": "ZAR",
+        "currencyName": "South African Rand",
+        "financialYear": "2022-2023",
+        "groupMappedCompaniesReqModel": [
+          {
+            "erpCompanyId": "C018",
+            "erpCompanyName": "Company R",
+            "erpCompanyCurrencyCode": "ZAR"
+          }
+        ]
+      }
+    ]
+  }

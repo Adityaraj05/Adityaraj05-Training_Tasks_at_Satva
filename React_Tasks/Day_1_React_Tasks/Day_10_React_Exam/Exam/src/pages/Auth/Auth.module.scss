@@ -1,0 +1,255 @@
+.loginLayout {
+    min-height: 100vh;
+    background-color: #f5f5f5;
+}
+
+.loginContainer {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1600px;
+    min-height: 95vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.leftSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f5f5;
+    height: 100%;
+    padding: 2rem;
+}
+
+.illustrationContainer {
+    max-width: 100%;
+    height: auto;
+}
+
+.loginIllustration {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+}
+
+.rightSection {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    height: 100%;
+}
+.inputGroup{
+    display:flex;
+    gap: 10px;
+}
+.inputField{
+    padding: 10px;
+    // max-width: 415px;
+}
+.loginFormContainer {
+    width: 100%;
+    max-width: 450px;
+    padding: 1rem;
+}
+
+.logoContainer {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.logoText {
+    font-size: 2.5rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.gatherText {
+    color: #2a7a6f;
+}
+
+.nexusText {
+    color: #333;
+}
+
+.signInTitle {
+    margin-bottom: 0.5rem !important;
+    font-weight: bold !important;
+    color: #333;
+}
+
+.welcomeText {
+    display: block;
+    margin-bottom: 2rem;
+    color: #555;
+}
+
+.formLabel {
+    font-weight: 500;
+}
+
+.required {
+    color: #f5222d;
+    margin-left: 2px;
+}
+
+.loginForm .ant-form-item {
+    margin-bottom: 1.5rem;
+}
+
+.loginForm .ant-input-affix-wrapper {
+    padding: 12px;
+    border-radius: 4px;
+}
+
+.emailIcon {
+    color: #2a7a6f;
+}
+
+.forgotPasswordContainer {
+    text-align: right;
+    margin-bottom: 1rem;
+}
+
+.forgotPasswordLink {
+    color: #e74c3c !important;
+    font-weight: 500;
+}
+
+.signInButton {
+    height: 48px;
+    background-color: #2a7a6f !important;
+    border-color: #2a7a6f !important;
+    font-weight: 500;
+    font-size: 16px;
+    margin-bottom: 1rem;
+}
+
+.signInButton:hover {
+    background-color: #1e5e55 !important;
+    border-color: #1e5e55 !important;
+}
+
+.ssoButtonsContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+
+
+.signupSection {
+    text-align: center;
+}
+
+.signupLink {
+    color: #2a7a6f !important;
+    font-weight: 500;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .loginContainer {
+        width: 95%;
+    }
+}
+
+@media (max-width: 992px) {
+    .loginContainer {
+        width: 100%;
+    }
+    
+    .leftSection {
+        padding: 1.5rem;
+    }
+    
+    .rightSection {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .loginContainer {
+        width: 90%;
+        min-height: 100vh;
+    }
+    
+    .rightSection {
+        padding: 2rem 1rem;
+        min-height: 100vh;
+    }
+    
+    .loginFormContainer {
+        width: 100%;
+        max-width: 500px;
+    }
+    
+    .logoText {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .loginContainer {
+        padding: 0;
+    }
+    
+    .rightSection {
+        padding: 1.5rem 1rem;
+    }
+    
+    .loginFormContainer {
+        padding: 0;
+    }
+    
+    .ssoButtonsContainer {
+        grid-template-columns: 1fr;
+    }
+    
+    .logoText {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .rightSection {
+        padding: 1rem 0.5rem;
+    }
+    
+    .signInTitle {
+        font-size: 1.5rem !important;
+    }
+    
+    .welcomeText {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 375px) {
+    .rightSection {
+        padding: 1rem 0.5rem;
+    }
+    
+    .logoText {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 320px) {
+    .loginFormContainer {
+        width: 90%;
+        padding: 0 0.25rem;
+    }
+    
+    .logoText {
+        font-size: 1.6rem;
+    }
+    
+    .forgotPasswordLink, .signupLink {
+        font-size: 0.9rem;
+    }
+}
