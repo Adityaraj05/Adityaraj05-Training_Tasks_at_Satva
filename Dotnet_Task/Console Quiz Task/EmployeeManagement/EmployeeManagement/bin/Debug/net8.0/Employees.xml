@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfEmployee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Employee>
+    <Id>b3be59d4-30ad-4061-b930-e134a887f632</Id>
+    <FirstName>Aditya</FirstName>
+    <LastName>Raj</LastName>
+    <Email>adityarajavi05@gmail.com</Email>
+    <PhoneNumber>8235220670</PhoneNumber>
+    <Salary>45000</Salary>
+    <Password>sTyXnCVION2Ic+RD94+zHQ==</Password>
+  </Employee>
+  <Employee>
+    <Id>eeb5b90d-dee3-42e8-9f81-2da02962269d</Id>
+    <FirstName>Aditya</FirstName>
+    <LastName>Raj</LastName>
+    <Email>harsh@gmail.com</Email>
+    <PhoneNumber>8235220670</PhoneNumber>
+    <Salary>45000</Salary>
+    <Password>11Am7P1MFmkl2x/ij1g/Jg==</Password>
+  </Employee>
+  <Employee>
+    <Id>c474b904-4fd9-41cb-93d5-4049408cbdfb</Id>
+    <FirstName>viv</FirstName>
+    <LastName>satva</LastName>
+    <Email>sat@gmail.co</Email>
+    <PhoneNumber>1234657890</PhoneNumber>
+    <Salary>21000</Salary>
+    <Password>Ry4PJpLElkNjQOPKrE8qvA==</Password>
+  </Employee>
+</ArrayOfEmployee>
