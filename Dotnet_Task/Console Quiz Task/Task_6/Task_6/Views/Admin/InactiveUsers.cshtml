@@ -1,0 +1,56 @@
+﻿@model List<Task_6.Models.User>
+@{
+    ViewData["Title"] = "Inactive Users";
+}
+<div class="container">
+    <h1 class="mt-4">Inactive Users</h1>
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["SuccessMessage"]
+        </div>
+    }
+
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger">
+            @TempData["ErrorMessage"]
+        </div>
+    }
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-info">No inactive users found.</div>
+    }
+    else
+    {
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var user in Model)
+                {
+                    <tr>
+                        <td>@user.FirstName @user.LastName</td>
+                        <td>@user.Email</td>
+                        <td>@user.RoleName</td>
+                        <td>
+                            <form asp-action="ToggleUserStatus" method="post">
+                                <input type="hidden" name="userId" value="@user.Id" />
+                                <input type="hidden" name="isActive" value="false" />
+                                <button type="submit" class="btn btn-success btn-sm">Reactivate</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>

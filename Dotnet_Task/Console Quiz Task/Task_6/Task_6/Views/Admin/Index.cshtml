@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Admin Dashboard";
+}
+
+<div class="container">
+    <h1 class="mt-4">Welcome, @TempData["UserName"]!</h1>
+    <div class="row mt-4">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">User Management</h5>
+                    <p class="card-text">Manage user accounts, roles, and access.</p>
+                    <a asp-action="UserManagement" class="btn btn-primary">Manage Users</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Inactive Users</h5>
+                    <p class="card-text">View and manage inactive user accounts.</p>
+                    <a asp-action="InactiveUsers" class="btn btn-warning">View Inactive Users</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

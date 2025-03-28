@@ -1,0 +1,50 @@
+﻿@model List<Task_6.Models.User>
+
+@{
+    ViewData["Title"] = "User Management";
+}
+
+<div class="container">
+    <h1 class="mt-4">User Management</h1>
+    <a asp-action="AddUser" class="btn btn-success mb-3">Add New User</a>
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+    }
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model)
+            {
+                <tr>
+                    <td>@user.FirstName @user.LastName</td>
+                    <td>@user.Email</td>
+                    <td>@user.RoleName</td>
+                    <td>
+                         @(user.IsActive ? "Active" : "Inactive") 
+                    </td>
+                    <td>
+                        <a asp-action="EditUser" asp-route-userId="@user.Id" class="btn btn-sm btn-primary">Edit</a>
+                        <form asp-action="ToggleUserStatus" method="post" class="d-inline">
+                            <input type="hidden" name="userId" value="@user.Id" />
+                            <input type="hidden" name="isActive" value="@user.IsActive" />
+                            <button type="submit" class="btn @(user.IsActive ? "btn-warning" : "btn-success") btn-sm">
+                                 @(user.IsActive ? "Deactivate" : "Activate") 
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
