@@ -1,0 +1,12 @@
+C:\Users\adity\source\repos\Task_9\DataAccessLayer\bin\Debug\net8.0\DataAccessLayer.deps.json
+C:\Users\adity\source\repos\Task_9\DataAccessLayer\bin\Debug\net8.0\DataAccessLayer.dll
+C:\Users\adity\source\repos\Task_9\DataAccessLayer\bin\Debug\net8.0\DataAccessLayer.pdb
+C:\Users\adity\source\repos\Task_9\DataAccessLayer\obj\Debug\net8.0\DataAccessLayer.csproj.AssemblyReference.cache
+C:\Users\adity\source\repos\Task_9\DataAccessLayer\obj\Debug\net8.0\DataAccessLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\adity\source\repos\Task_9\DataAccessLayer\obj\Debug\net8.0\DataAccessLayer.AssemblyInfoInputs.cache
+C:\Users\adity\source\repos\Task_9\DataAccessLayer\obj\Debug\net8.0\DataAccessLayer.AssemblyInfo.cs
+C:\Users\adity\source\repos\Task_9\DataAccessLayer\obj\Debug\net8.0\DataAccessLayer.csproj.CoreCompileInputs.cache
+C:\Users\adity\source\repos\Task_9\DataAccessLayer\obj\Debug\net8.0\DataAccessLayer.dll
+C:\Users\adity\source\repos\Task_9\DataAccessLayer\obj\Debug\net8.0\refint\DataAccessLayer.dll
+C:\Users\adity\source\repos\Task_9\DataAccessLayer\obj\Debug\net8.0\DataAccessLayer.pdb
+C:\Users\adity\source\repos\Task_9\DataAccessLayer\obj\Debug\net8.0\ref\DataAccessLayer.dll
